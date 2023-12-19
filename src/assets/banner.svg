@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 540 540" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <g transform="translate(0 -512.36)">
+  <g transform="matrix(1 -7.0423e-9 5.9564e-9 1 -96.089 201.43)">
+   <g fill="#faa" font-family="MA Sexy" font-size="387.74" letter-spacing="0" word-spacing="0">
+    <text transform="translate(96.089 310.93)" x="-639.78455" y="243.45752" fill="#000" font-family="MA Sexy" font-size="36" letter-spacing="0" word-spacing="0">
+     <tspan x="-639.78455" y="243.45752"/>
+    </text>
+    <g transform="translate(-69.542 -145.34)">
+     <g font-family="MA Sexy" font-size="104.26" letter-spacing="0" word-spacing="0">
+      <path transform="matrix(.95441 .29849 -.35753 1.1432 26.912 469.22)" d="m137.16 147.62-65.388-113.26 130.78-3e-6z" fill="#a52a2a"/>
+      <g fill="#ff8c00">
+       <path transform="matrix(.98667 .16275 -.19494 1.1818 165.54 522.21)" d="m137.16 147.62-65.388-113.26 130.78-3e-6z" fill="#ff8c00"/>
+      </g>
+      <g fill="#ffd700">
+       <path transform="matrix(.99844 .05575 -.06678 1.1959 317.09 553.42)" d="m137.16 147.62-65.388-113.26 130.78-3e-6z" fill="#ffd700"/>
+      </g>
+      <g fill="#228b22">
+       <g fill="#228b22">
+        <path transform="matrix(.99753 -.07024 .08414 1.1948 478.42 568.6)" d="m137.16 147.62-65.388-113.26 130.78-3e-6z" fill="#228b22"/>
+       </g>
+      </g>
+      <g fill="#191970">
+       <path transform="matrix(.97985 -.19975 .23926 1.1737 635.36 564.12)" d="m137.16 147.62-65.388-113.26 130.78-3e-6z" fill="#191970"/>
+      </g>
+      <g fill="#8b008b">
+       <path transform="matrix(.95186 -.30654 .36718 1.1401 786.93 537.35)" d="m137.16 147.62-65.388-113.26 130.78-3e-6z" fill="#8b008b"/>
+      </g>
+      <path d="m49.748 519.53c321.24 116.01 637 117.65 970.99-17.752" fill="none" stroke="#000" stroke-width="1.0758"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

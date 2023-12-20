@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:3001'
+import API_BASE from "../settings";
 
 const sendEmail = async () => {
   const articleIdString: any = localStorage.getItem('articleId');

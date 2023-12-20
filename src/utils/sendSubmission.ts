@@ -1,5 +1,5 @@
 
-const API_BASE = 'http://localhost:3001'
+import API_BASE from "../settings";
 
 interface FormData {
   articleType: string;

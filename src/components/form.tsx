@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Input, Select, InputNumber, Button, Checkbox, Radio, Upload } from 'antd';
+import { Form, Input, Select, InputNumber, Button, Checkbox, Radio, Modal, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+import SubjectExamples from './subjectExamples';
 import Terms from './terms';
 import sendData from '../utils/sendData'
 import sendSubmission from '../utils/sendSubmission';
@@ -18,6 +19,15 @@ const ArticleForm: React.FC = () => {
   const [agreement, setAgreement] = useState(false);
   const [mainImage, setMainImage] = useState([]);
   const [additionalImage, setAdditionalImage] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  }
+
+  const closeModal = () => {
+    setIsModalVisible(false);
+  }
 
   const navigate = useNavigate();
 
@@ -122,12 +132,17 @@ const ArticleForm: React.FC = () => {
                         <>
                         <div key={2} className='slide-in'>
                         <div className='mb-5'>
-                        <h1 className='text-2xl font-semibold mb-2'>Subject of the Article</h1>
-                        <p>Please specify the broader topic or theme you want your article to focus on. This should be an overarching subject that resonates with your personal experiences or stories. For example, it could be about a significant challenge you’ve overcome, a remarkable achievement, or an important issue you're passionate about. Think of it as the central thread that ties your narrative together.</p>
+                        <h1 className='text-2xl font-semibold mb-2'>Define the Theme of Your Article</h1>
+                        <p>Please briefly state the central theme or topic of your article. This should be a concise overview or headline of what your article will be about. Think of it as a summary or the title of a chapter – it gives an idea of the story but doesn’t delve into the details. For instance, 'Overcoming Adversity in Competitive Sports', 'Finding Balance Between Work and Family', or 'My Journey with Learning a New Language'. Try to encapsulate your main idea in a sentence or two.</p>
+                        {/* <p>Please specify the broader topic or theme you want your article to focus on. This should be an overarching subject that resonates with your personal experiences or stories. For example, it could be about a significant challenge you’ve overcome, a remarkable achievement, or an important issue you're passionate about. Think of it as the central thread that ties your narrative together.</p> */}
+                        <button onClick={showModal} className="text-blue-500 mt-3 cursor-pointer hover:underline">See Examples Here</button>
                         </div>
-                      <Form.Item rules={[{ required: true, message: 'Please choose a subject' }]} label="" name="subject">
+                      <Form.Item rules={[{ required: true, message: 'Please choose a theme' }]} label="" name="subject">
                         <Input.TextArea onChange={(e: any) => setSubject(e.target.value)} placeholder="Example: Balancing Work and Personal Passions..." />
                       </Form.Item>
+                      <Modal title="Examples" open={isModalVisible} onCancel={closeModal} footer={null}>
+                          <SubjectExamples />
+                      </Modal>
                       </div>
                        </>
                       );
@@ -136,8 +151,9 @@ const ArticleForm: React.FC = () => {
                           <>
                           <div key={3} className='slide-in'>
                           <div className='mb-5'>
-                          <h1 className='text-2xl font-semibold mb-2'>Tell Us Your Story</h1>
-                          <p>This is your space to share the details of your personal journey or experiences related to the chosen subject. Feel free to recount specific events, challenges you’ve faced, milestones you’ve achieved, or insights you’ve gained. Think of it as narrating a chapter from your life that vividly captures the essence of your story. The more descriptive and heartfelt, the better we can understand and convey your unique perspective in the article.</p>
+                          <h1 className='text-2xl font-semibold mb-2'>Detail Your Personal Journey</h1>
+                          <p>Now that you've identified the theme, this is where you can dive into the full narrative of your experiences. Share the detailed account of your personal journey, challenges, achievements, and insights related to your chosen theme. Feel free to describe specific events, turning points, and the emotions involved. The more descriptive and heartfelt your storytelling, the better we can capture and convey the depth of your unique perspective.</p>
+                          {/* <p>This is your space to share the details of your personal journey or experiences related to the chosen subject. Feel free to recount specific events, challenges you’ve faced, milestones you’ve achieved, or insights you’ve gained. Think of it as narrating a chapter from your life that vividly captures the essence of your story. The more descriptive and heartfelt, the better we can understand and convey your unique perspective in the article.</p> */}
                           </div>
                         <Form.Item rules={[{ required: true, message: 'Please fill out your story' }]} label="" name="story">
                           <Input.TextArea onChange={(e: any) => setStory(e.target.value)} placeholder="Example: My journey began in the small town of Springfield, where I first discovered my passion for painting. Overcoming initial challenges, like limited resources and lack of mentorship, I persevered, driven by my love for art. A pivotal moment was when my work was featured in a local exhibition, leading to unexpected opportunities and growth. This experience taught me the importance of resilience and staying true to one's vision..." />

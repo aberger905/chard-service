@@ -1,6 +1,6 @@
 import { loadStripe } from '@stripe/stripe-js';
 
-const API_BASE = 'http://localhost:3001'
+import API_BASE from "../settings";
 
 const stripePromise = loadStripe('pk_test_51OMv6cLGU8dofAUr7WP2dwDQIyrk1OgR5Qhfr6n098kNIItNalBmhg29I8xmR6554bHPxzetBI8yrz7g8zruHWH900PBHHbJqx');
 

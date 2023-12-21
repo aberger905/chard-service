@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import fetchArticle from '../utils/fetchArticle';
 import ArticleFooter from '../components/submitFooter';
 
@@ -9,12 +10,13 @@ interface Article {
 
 const Preview = () => {
   const [article, setArticle]= useState<Article | null>(null)
+  const { slug } = useParams();
 
   useEffect(() => {
 
   const getArticle = async () => {
     try {
-      const result = await fetchArticle();
+      const result = await fetchArticle(slug);
       localStorage.setItem('title', JSON.stringify(result.title))
       setArticle(result);
     } catch (e) {
@@ -38,9 +40,14 @@ const Preview = () => {
       <div>
       <h1 className='text-3xl font-bold mb-5'>{article ? article.title : ''}</h1>
       </div>
-      <div className='mb-5'>
+      <div className='mb-5 flex'>
+        <div>
         <p><strong>Author Name </strong>| The Daily Times</p>
         <p className='text-sm text-gray-700'>Published {new Date(Date.now()).toDateString()}</p>
+        </div>
+        { article && <div className='border rounded-3xl border-green-600 p-3 ml-3'>
+           <h1 className='text-green-600 text-2xl'>Approved for Publication</h1> 
+        </div> }
       </div>
       <div>
         {article ? JSON.parse(article.content).map((paragraph: string, index: number) => (

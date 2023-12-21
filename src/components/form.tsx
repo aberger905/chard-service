@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Form, Input, Select, InputNumber, Button, Checkbox, Radio, Modal, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import SubjectExamples from './subjectExamples';
-import Terms from './terms';
-import sendData from '../utils/sendData'
+import { FaSpinner } from "react-icons/fa";
 import sendSubmission from '../utils/sendSubmission';
 
 const ArticleForm: React.FC = () => {
@@ -16,10 +15,11 @@ const ArticleForm: React.FC = () => {
   const [subject, setSubject] = useState('');
   const [story, setStory] = useState('');
   const [email, setEmail] = useState('');
-  const [agreement, setAgreement] = useState(false);
-  const [mainImage, setMainImage] = useState([]);
-  const [additionalImage, setAdditionalImage] = useState([]);
+  // const [agreement, setAgreement] = useState(false);
+  // const [mainImage, setMainImage] = useState([]);
+  // const [additionalImage, setAdditionalImage] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -34,7 +34,7 @@ const ArticleForm: React.FC = () => {
   const { Option } = Select;
 
   const [form] = Form.useForm();
-  const totalSteps = 6;
+  const totalSteps = 5;
 
   const next = async () => {
     try {
@@ -50,6 +50,8 @@ const ArticleForm: React.FC = () => {
   };
 
   const handleSubmit = async () => {
+    setIsLoading(true);
+
     const formData = {
       articleType,
       fullName,
@@ -57,25 +59,24 @@ const ArticleForm: React.FC = () => {
       age,
       subject,
       story,
-      mainImage,
-      additionalImage,
       email
     };
-
-    const submissionId = await sendSubmission(formData);
-    localStorage.setItem('submissionId', JSON.stringify(submissionId.submissionId));
-
-
-    navigate('/generate');
-
-  };
-
-  const normFile = (e: any) => {
-    if (Array.isArray(e)) {
-      return e;
+    try {
+      const submissionId = await sendSubmission(formData);
+      localStorage.setItem('submissionId', JSON.stringify(submissionId.submissionId));
+    } catch (e) {
+      setIsLoading(false);
+      console.error('sumbission error', e)
     }
-    return e && e.fileList;
+    navigate('/payment');
   };
+
+  // const normFile = (e: any) => {
+  //   if (Array.isArray(e)) {
+  //     return e;
+  //   }
+  //   return e && e.fileList;
+  // };
 
   const renderStep = () => {
     switch (currentStep) {
@@ -161,41 +162,41 @@ const ArticleForm: React.FC = () => {
                         </div>
                          </>
                         )
-                    case 4:
-                      return (
-                        <>
-                        <div key={4} className='slide-in'>
-                        <h1 className='text-2xl font-semibold mb-2'>Visual Elements</h1>
-                        <Form.Item
-                      name="mainImage"
-                      label="Upload Main Image"
-                      valuePropName="fileList"
-                      getValueFromEvent={normFile}
-                      extra="Select main image to be displayed."
-                    >
-                      <Upload name="headerImage" action="/upload.do" listType="picture">
-                        <Button icon={<UploadOutlined />}>Click to upload</Button>
-                      </Upload>
-                    </Form.Item>
+                    // case 4:
+                    //   return (
+                    //     <>
+                    //     <div key={4} className='slide-in'>
+                    //     <h1 className='text-2xl font-semibold mb-2'>Visual Elements</h1>
+                    //     <Form.Item
+                    //   name="mainImage"
+                    //   label="Upload Main Image"
+                    //   valuePropName="fileList"
+                    //   getValueFromEvent={normFile}
+                    //   extra="Select main image to be displayed."
+                    // >
+                    //   <Upload name="headerImage" action="/upload.do" listType="picture">
+                    //     <Button icon={<UploadOutlined />}>Click to upload</Button>
+                    //   </Upload>
+                    // </Form.Item>
 
-                    <Form.Item
-                      name="additionalImage"
-                      label="Upload Additional Image"
-                      valuePropName="fileList"
-                      getValueFromEvent={normFile}
-                      extra="Select an additional image."
-                    >
-                      <Upload name="additionalImage" action="/upload.do" listType="picture">
-                        <Button icon={<UploadOutlined />}>Click to upload</Button>
-                      </Upload>
-                    </Form.Item>
-                    </div>
-                        </>
-                      );
-                      case 5:
+                    // <Form.Item
+                    //   name="additionalImage"
+                    //   label="Upload Additional Image"
+                    //   valuePropName="fileList"
+                    //   getValueFromEvent={normFile}
+                    //   extra="Select an additional image."
+                    // >
+                    //   <Upload name="additionalImage" action="/upload.do" listType="picture">
+                    //     <Button icon={<UploadOutlined />}>Click to upload</Button>
+                    //   </Upload>
+                    // </Form.Item>
+                    // </div>
+                    //     </>
+                    //   );
+                      case 4:
                         return (
                           <>
-                          <div key={5} className='slide-in'>
+                          <div key={4} className='slide-in'>
                           <div className='mb-5'>
                           <h1 className='text-2xl font-semibold mb-2'>Receive Your Article Link</h1>
                           <p>Enter your email address below, and we'll send you a direct link to the article.</p>
@@ -254,8 +255,8 @@ const ArticleForm: React.FC = () => {
           </Button>
         )}
         {currentStep === totalSteps - 1 && (
-          <Button className='bg-blue-600' type="primary" htmlType="submit">
-            Submit
+          <Button className='bg-blue-600' disabled={isLoading} type="primary" htmlType="submit">
+            {isLoading ? <div className='flex justify-center items-center'><FaSpinner className='animate-spin'/></div> : 'Submit'}
           </Button>
         )}
       </Form.Item>

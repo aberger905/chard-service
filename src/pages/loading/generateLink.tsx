@@ -9,7 +9,7 @@ const GenerateLink = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const messages = ['Talking to publisher...', 'Initiating editorial review...', 'Finalizing layout and design elements...', 'Preparing your story for the spotlight...', 'Publishing...'];
+    const messages = ['Talking to publisher...', 'Initiating final checks...', 'Finalizing layout and design elements...', 'Preparing your story for the spotlight...', 'Publishing...'];
     let messageIndex = 0;
 
     const intervalId = setInterval(() => {

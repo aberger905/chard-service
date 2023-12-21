@@ -8,8 +8,6 @@ interface FormData {
   age: string;
   subject: string;
   story: string;
-  mainImage: any;
-  additionalImage: any;
   email: string;
 }
 

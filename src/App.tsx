@@ -9,6 +9,7 @@ import RealGenerate from './pages/loading/realGenerate';
 import Preview from './pages/preview';
 import Link from './pages/link';
 import GenerateLink from './pages/loading/generateLink';
+import Confirmation from './pages/confirmation';
 
 function App() {
   return (
@@ -20,9 +21,10 @@ function App() {
       <Route path='/generate' element={ <FakeGenerate /> } />
       <Route path='/payment' element={ <Payment />} />
       <Route path='/article' element={ <RealGenerate /> } />
-      <Route path='/preview' element={ <Preview /> } />
+      <Route path='/preview/:slug' element={ <Preview /> } />
       <Route path='/link' element={ <Link /> } />
       <Route path='/publish' element={ <GenerateLink /> } />
+      <Route path='/confirmation' element={ <Confirmation />} />
     </Routes>
    </BrowserRouter>
  </>

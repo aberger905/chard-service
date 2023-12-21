@@ -9,24 +9,36 @@ interface Article {
 }
 
 const Preview = () => {
-  const [article, setArticle]= useState<Article | null>(null)
+  const [article, setArticle] = useState<Article | null>(null);
   const { slug } = useParams();
 
   useEffect(() => {
 
-  const getArticle = async () => {
-    try {
-      const result = await fetchArticle(slug);
-      localStorage.setItem('title', JSON.stringify(result.title))
-      setArticle(result);
-    } catch (e) {
-      throw new Error('error in preview fetching article')
+    const getArticle = async () => {
+      try {
+        const result = await fetchArticle(slug);
+        localStorage.setItem('title', JSON.stringify(result.title));
+        setArticle(result);
+      } catch (e) {
+        console.error('Error in preview fetching article', e);
+
+      }
+    };
+
+
+    const match = slug?.match(/-(\d+)$/);
+    if (match) {
+      const number = parseInt(match[1], 10);
+      localStorage.setItem('articleId', JSON.stringify(number));
+    } else {
+      console.log("No number found at the end of the string");
     }
-  }
 
-  getArticle();
 
-  }, [])
+    getArticle();
+
+  }, []); 
+
 
   return (
     <>
@@ -46,7 +58,7 @@ const Preview = () => {
         <p className='text-sm text-gray-700'>Published {new Date(Date.now()).toDateString()}</p>
         </div>
         { article && <div className='border rounded-3xl border-green-600 p-3 ml-3'>
-           <h1 className='text-green-600 text-2xl'>Approved for Publication</h1> 
+           <h1 className='text-green-600 text-2xl'>Approved for Publication</h1>
         </div> }
       </div>
       <div>

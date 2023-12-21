@@ -8,8 +8,18 @@ import sendEmail from '../utils/sendEmail';
 const Link = () => {
 
   const handleEmail = async () => {
-    await sendEmail();
-  }
+    if (localStorage.getItem('email') !== 'sent') {
+      try {
+        await sendEmail();
+        localStorage.setItem('email', 'sent');
+      } catch (error) {
+        console.error('Error sending email:', error);
+
+      }
+    } else {
+      console.log("Email already sent in this session");
+    }
+  };
 
   useEffect(() => {
     handleEmail();

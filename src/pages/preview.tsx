@@ -37,12 +37,12 @@ const Preview = () => {
 
     getArticle();
 
-  }, []); 
+  }, []);
 
 
   return (
     <>
-    <div className=' bg-gradient-to-t from-purple-300 to white min-h-screen'>
+    <div className=' bg-gradient-to-t from-gray-300 to white min-h-screen'>
     <div className='flex flex-col justify-center items-center'>
       <div className='w-[90%] sm:w-[50rem] mb-5 mt-5 fadeUp'>
       <h1 className='text-3xl font-semibold'>Article Preview</h1>

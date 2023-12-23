@@ -6,12 +6,12 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <nav className="bg-white shadow-lg">
+        <nav className="bg-black shadow-lg">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between items-center"> {/* Adjusted for alignment */}
                     {/* Website Logo */}
                     <Link to="/" className="flex items-center py-4 px-2">
-                        <span className="text-3xl">Journova</span>
+                        <span className="text-3xl text-white font-anton">Journova</span>
                     </Link>
 
                     {/* Spacer */}
@@ -19,10 +19,10 @@ const Navbar = () => {
 
                     {/* Primary Navbar items */}
                     <div className="hidden md:flex items-center space-x-1">
-                        <Link to='/' className="py-4 px-2 hover:text-slate-500 transition duration-300">Create</Link>
-                        <Link to='/' className="py-4 px-2 hover:text-slate-500 transition duration-300">Examples</Link>
-                        <Link to='/' className="py-4 px-2 hover:text-slate-500 transition duration-300">Profile</Link>
-                        <Link to='/' className="py-4 px-2 hover:text-slate-500 transition duration-300">Pricing</Link>
+                        <Link to='/' className="py-4 text-white px-2 hover:text-slate-300 transition duration-300">Create</Link>
+                        <Link to='/' className="py-4 text-white px-2 hover:text-slate-300 transition duration-300">Examples</Link>
+                        <Link to='/' className="py-4 text-white px-2 hover:text-slate-300 transition duration-300">Pricing</Link>
+                        <Link to='/about' className="py-4 text-white px-2 hover:text-slate-300 transition duration-300">About</Link>
                     </div>
 
                     {/* Mobile menu button */}

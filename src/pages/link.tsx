@@ -8,10 +8,10 @@ import sendEmail from '../utils/sendEmail';
 const Link = () => {
 
   const handleEmail = async () => {
-    if (localStorage.getItem('email') !== 'sent') {
+    if (sessionStorage.getItem('email') !== 'sent') {
       try {
         await sendEmail();
-        localStorage.setItem('email', 'sent');
+        sessionStorage.setItem('email', 'sent');
       } catch (error) {
         console.error('Error sending email:', error);
 

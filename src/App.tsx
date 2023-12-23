@@ -10,6 +10,7 @@ import Preview from './pages/preview';
 import Link from './pages/link';
 import GenerateLink from './pages/loading/generateLink';
 import Confirmation from './pages/confirmation';
+import About from './pages/about';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path='/link' element={ <Link /> } />
       <Route path='/publish' element={ <GenerateLink /> } />
       <Route path='/confirmation' element={ <Confirmation />} />
+      <Route path='/about' element={ <About /> } />
     </Routes>
    </BrowserRouter>
  </>

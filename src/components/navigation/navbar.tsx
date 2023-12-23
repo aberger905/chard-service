@@ -21,24 +21,24 @@ const Navbar = () => {
                     <div className="hidden md:flex items-center space-x-1">
                         <Link to='/' className="py-4 text-white px-2 hover:text-slate-300 transition duration-300">Create</Link>
                         <Link to='/' className="py-4 text-white px-2 hover:text-slate-300 transition duration-300">Examples</Link>
-                        <Link to='/' className="py-4 text-white px-2 hover:text-slate-300 transition duration-300">Pricing</Link>
+                        <Link to='/pricing' className="py-4 text-white px-2 hover:text-slate-300 transition duration-300">Pricing</Link>
                         <Link to='/about' className="py-4 text-white px-2 hover:text-slate-300 transition duration-300">About</Link>
                     </div>
 
                     {/* Mobile menu button */}
                     <div className="md:hidden flex items-center">
-                        <button type="button" className="outline-none mobile-menu-button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                        <button type="button" className="outline-none mobile-menu-button text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                             {isMenuOpen ? <FaTimes /> : <FaBars />}
                         </button>
                     </div>
                 </div>
             </div>
             {/* Mobile Menu */}
-            <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-                <Link to='/' className="block py-2 px-4 text-sm hover:bg-gray-200">Create</Link>
-                <Link to='/' className="block py-2 px-4 text-sm hover:bg-gray-200">Examples</Link>
-                <Link to='/' className="block py-2 px-4 text-sm hover:bg-gray-200">Profile</Link>
-                <Link to='/' className="block py-2 px-4 text-sm hover:bg-gray-200">Pricing</Link>
+            <div className={`md:hidden bg-black ${isMenuOpen ? 'block' : 'hidden'}`}>
+                <Link to='/' className="block py-2 px-4 text-sm text-white hover:bg-gray-200">Create</Link>
+                <Link to='/' className="block py-2 px-4 text-sm text-white hover:bg-gray-200">Examples</Link>
+                <Link to='/pricing' className="block py-2 px-4 text-white text-sm hover:bg-gray-200">Pricing</Link>
+                <Link to='/about' className="block py-2 px-4 text-white text-sm hover:bg-gray-200">About</Link>
             </div>
         </nav>
     );

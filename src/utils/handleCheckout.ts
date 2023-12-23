@@ -4,7 +4,7 @@ import API_BASE from "../settings";
 
 const stripePromise = loadStripe('pk_test_51OMv6cLGU8dofAUr7WP2dwDQIyrk1OgR5Qhfr6n098kNIItNalBmhg29I8xmR6554bHPxzetBI8yrz7g8zruHWH900PBHHbJqx');
 
-const handleCheckout = async () => {
+const handleCheckout = async (plan: string) => {
   const subIdString: any = localStorage.getItem('submissionId');
   const submissionId = JSON.parse(subIdString);
 
@@ -14,7 +14,7 @@ const handleCheckout = async () => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             // Include any necessary data in the body, like the submissionId
-            body: JSON.stringify({ submissionId: submissionId }),
+            body: JSON.stringify({ submissionId: submissionId, plan: plan }),
         });
 
         const session = await response.json();

@@ -48,3 +48,7 @@ code {
 .fadeUp {
   animation: fadeUp 0.5s ease-out;
 }
+
+.selected-card {
+  border: 2px solid blue !important;
+}

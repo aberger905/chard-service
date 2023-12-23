@@ -5,7 +5,7 @@ const Input: React.FC = () => {
 
   return (
   <div className='flex flex-col justify-center items-center min-h-screen bg-gradient-to-t from-gray-300 to white'>
-    <div className='border rounded-lg shadow w-[90%] md:w-1/2 p-5 bg-white'>
+    <div className='border rounded-lg shadow w-[90%] md:w-1/2 p-5 bg-white transition'>
     <Form />
    </div>
  </div>

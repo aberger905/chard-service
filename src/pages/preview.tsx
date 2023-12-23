@@ -54,7 +54,7 @@ const Preview = () => {
       </div>
       <div className='mb-5 flex'>
         <div>
-        <p><strong>Author Name </strong>| The Daily Times</p>
+        <p><strong>Author Name </strong>| Publication Name</p>
         <p className='text-sm text-gray-700'>Published {new Date(Date.now()).toDateString()}</p>
         </div>
         { article && <div className='border rounded-3xl border-green-600 p-3 ml-3'>

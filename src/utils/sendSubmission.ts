@@ -11,7 +11,7 @@ interface FormData {
   email: string;
 }
 
-const sendSubmission = async (formData: FormData) => {
+const sendSubmission = async (formData: FormData | {}) => {
 
   try {
     const response = await fetch(`${API_BASE}/article/submission`, {

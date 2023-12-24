@@ -6,6 +6,7 @@ import ArticleFooter from '../components/submitFooter';
 interface Article {
   title: string;
   content: string;
+  plan: string;
 }
 
 const Preview = () => {
@@ -45,8 +46,14 @@ const Preview = () => {
     <div className=' bg-gradient-to-t from-gray-300 to white min-h-screen'>
     <div className='flex flex-col justify-center items-center'>
       <div className='w-[90%] sm:w-[50rem] mb-5 mt-5 fadeUp'>
-      <h1 className='text-3xl font-semibold'>Article Preview</h1>
+      <h1 className='text-3xl font-anton'>Article Preview</h1>
       <p className=''>Here is your basic article preview! Please read over the content carefully to ensure it aligns with your expectations. Once you are ready, we ask that you agree to our publication policy. This step is essential before we can publish your article to one of our partnered news platforms for public viewing. </p>
+      {article && article.plan === 'premium' && (
+        <div>
+          <h1 className='font-anton'>* 1 revision allowed *</h1>
+          <p>Your purchase of the Premium Plan includes the option for one revision. If the article doesn't meet your expectations, feel free to [click here] to leave a note for our journalists. We encourage thoughtful consideration before requesting a revision to ensure clarity and precision in adjustments </p>
+        </div>
+      )}
       </div>
       <div className='w-[90%] sm:w-[50rem] border rounded-lg p-2 bg-white shadow-lg fadeUp mb-36'>
       <div>
@@ -57,7 +64,7 @@ const Preview = () => {
         <p><strong>Author Name </strong>| Publication Name</p>
         <p className='text-sm text-gray-700'>Published {new Date(Date.now()).toDateString()}</p>
         </div>
-        { article && <div className='border rounded-3xl border-green-600 p-3 ml-3'>
+        { article && <div className='border rounded-lg border-green-600 p-3 ml-3'>
            <h1 className='text-green-600 text-2xl'>Approved for Publication</h1>
         </div> }
       </div>

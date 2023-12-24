@@ -12,6 +12,7 @@ import GenerateLink from './pages/loading/generateLink';
 import Confirmation from './pages/confirmation';
 import About from './pages/about';
 import Pricing from './pages/pricing';
+import Revision from './pages/revision';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Route path='/confirmation' element={ <Confirmation />} />
       <Route path='/about' element={ <About /> } />
       <Route path='/pricing' element={ <Pricing />} />
+      <Route path='/revision' element={ <Revision /> } />
     </Routes>
    </BrowserRouter>
  </>

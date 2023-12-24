@@ -7,7 +7,6 @@ const fetchArticle = async (slug: any) => {
   try {
     const response = await fetch(`${API_BASE}/article/${slug}`)
     const result = response.json();
-    console.log(result);
     return result
   } catch (e) {
     throw new Error('Error fetching article from database');

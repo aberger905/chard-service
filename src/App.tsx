@@ -12,7 +12,9 @@ import GenerateLink from './pages/loading/generateLink';
 import Confirmation from './pages/confirmation';
 import About from './pages/about';
 import Pricing from './pages/pricing';
-import Revision from './pages/revision';
+import Revision from './pages/revision/revision';
+import RevisionPreview from './pages/revision/revisionPreview';
+import RevisionConfirmation from './pages/revision/submissionSuccess';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
       <Route path='/about' element={ <About /> } />
       <Route path='/pricing' element={ <Pricing />} />
       <Route path='/revision' element={ <Revision /> } />
+      <Route path='/revision/:slug' element={ <RevisionPreview /> } />
+      <Route path='/revision/confirmation' element={ <RevisionConfirmation /> } />
     </Routes>
    </BrowserRouter>
  </>

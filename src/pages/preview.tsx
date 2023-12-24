@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import fetchArticle from '../utils/fetchArticle';
 import ArticleFooter from '../components/submitFooter';
+
 
 interface Article {
   title: string;
@@ -51,13 +52,25 @@ const Preview = () => {
       {article && article.plan === 'premium' && (
         <div>
           <h1 className='font-anton'>* 1 revision allowed *</h1>
-          <p>Your purchase of the Premium Plan includes the option for one revision. If the article doesn't meet your expectations, feel free to [click here] to leave a note for our journalists. We encourage thoughtful consideration before requesting a revision to ensure clarity and precision in adjustments </p>
+          <p>Your purchase of the Premium Plan includes the option for one revision. If the article doesn't meet your expectations, feel free to <Link to='/revision'>[click here]</Link> to leave a note for our journalists. We encourage thoughtful consideration before requesting a revision to ensure clarity and precision in adjustments </p>
         </div>
       )}
       </div>
       <div className='w-[90%] sm:w-[50rem] border rounded-lg p-2 bg-white shadow-lg fadeUp mb-36'>
       <div>
-      <h1 className='text-3xl font-bold mb-5'>{article ? article.title : ''}</h1>
+      { article ? <h1 className='text-3xl font-bold mb-5'>{article ? article.title : ''}</h1> :
+                <div className="animate-pulse flex space-x-4">
+                <div className="flex-1 space-y-6 py-1">
+                  <div className="h-2 bg-slate-700 rounded"></div>
+                  <div className="space-y-3">
+                    <div className="grid grid-cols-3 gap-4">
+                      <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                      <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              }
       </div>
       <div className='mb-5 flex'>
         <div>
@@ -74,7 +87,51 @@ const Preview = () => {
           <p>{paragraph}</p>
           <br />
           </React.Fragment>
-        )) : ''}
+        )) :
+        <div className="animate-pulse flex space-x-4">
+        <div className="flex-1 space-y-6 py-1">
+          <div className="h-1 bg-slate-700 rounded"></div>
+          <div className="space-y-3">
+            <div className="grid grid-cols-3 gap-4">
+              <div className="h-1 bg-slate-700 rounded col-span-2"></div>
+              <div className="h-1 bg-slate-700 rounded col-span-1"></div>
+            </div>
+            <div className="h-1 bg-slate-700 rounded"></div>
+            <div className="grid grid-cols-3 gap-3">
+              <div className="h-1 bg-slate-700 rounded col-span-1"></div>
+              <div className="h-1 bg-slate-700 rounded col-span-2"></div>
+            </div>
+            <div className="h-1 bg-slate-700 rounded"></div>
+          </div>
+          <div className="h-1 bg-slate-700 rounded"></div>
+          <div className="space-y-3">
+            <div className="grid grid-cols-3 gap-4">
+              <div className="h-1 bg-slate-700 rounded col-span-2"></div>
+              <div className="h-1 bg-slate-700 rounded col-span-1"></div>
+            </div>
+            <div className="h-1 bg-slate-700 rounded"></div>
+            <div className="grid grid-cols-3 gap-3">
+              <div className="h-1 bg-slate-700 rounded col-span-1"></div>
+              <div className="h-1 bg-slate-700 rounded col-span-2"></div>
+            </div>
+            <div className="h-1 bg-slate-700 rounded"></div>
+          </div>
+          <div className="h-1 bg-slate-700 rounded"></div>
+          <div className="space-y-3">
+            <div className="grid grid-cols-3 gap-4">
+              <div className="h-1 bg-slate-700 rounded col-span-2"></div>
+              <div className="h-1 bg-slate-700 rounded col-span-1"></div>
+            </div>
+            <div className="h-1 bg-slate-700 rounded"></div>
+            <div className="grid grid-cols-3 gap-3">
+              <div className="h-1 bg-slate-700 rounded col-span-1"></div>
+              <div className="h-1 bg-slate-700 rounded col-span-2"></div>
+            </div>
+            <div className="h-1 bg-slate-700 rounded"></div>
+          </div>
+        </div>
+      </div>
+        }
       </div>
       </div>
     </div>

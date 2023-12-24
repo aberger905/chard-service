@@ -69,7 +69,7 @@ const renderStep = () => {
                             form.setFieldsValue({ articleType: 'highlighted' })
                           }
                           }
-                          className={selectedType === 'highlighted' ? ' border-blue-600 transition m-3 shadow-xl font-semibold' : 'm-3'}
+                          className={`${selectedType === 'highlighted' ? ' border-blue-600 transition m-3 shadow-xl font-semibold' : 'm-3'}  cursor-pointer`}
                         >
                           <p>This type is all about you! If you have a special achievement or story, choose this. We'll focus on what makes your story unique and exciting.</p>
                         </Card>
@@ -82,7 +82,7 @@ const renderStep = () => {
                             form.setFieldsValue({ articleType: 'featured' })
                             }
                           }
-                          className={selectedType === 'featured' ? ' border-blue-600 transition m-3 shadow-xl font-semibold' : 'm-3'}
+                          className={`${selectedType === 'featured' ? ' border-blue-600 transition m-3 shadow-xl font-semibold' : 'm-3'}  cursor-pointer`}
                         >
                           <p>Pick this to be part of a bigger story. You'll still be important, but you'll share the stage with a bigger theme, like trends in your industry or important social topics. It's great if you want to share your views or experiences as part of something larger.</p>
                         </Card>

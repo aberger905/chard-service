@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Checkbox, Modal, Button } from 'antd';
+import { Form, Checkbox, Modal, Button, Select } from 'antd';
 import PubPolicy from './publicationPolicy';
 import publishArticle from '../utils/publishArticle';
 
-const ArticleFooter = () => {
+const RevisionFooter = () => {
   const [form] = Form.useForm();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
@@ -28,9 +28,9 @@ const ArticleFooter = () => {
 
   }
 
-  const onFinish = () => {
-    console.log('Article submitted for publication');
-    handleSubmit('original')
+  const onFinish = (values: any) => {
+    console.log('Selected Article Version:', values.articleVersion);
+    handleSubmit(values.articleVersion);
     navigate('/publish');
   };
 
@@ -46,6 +46,16 @@ const ArticleFooter = () => {
         onValuesChange={onFormValuesChange}
         layout="vertical"
       >
+          <Form.Item
+          name="articleVersion"
+          label="Choose Article Version"
+          rules={[{ required: true, message: 'Please select an article version' }]}
+        >
+          <Select placeholder="Select version">
+            <Select.Option value="original">Original</Select.Option>
+            <Select.Option value="revised">Revised</Select.Option>
+          </Select>
+        </Form.Item>
         <Form.Item
           name="agreement"
           valuePropName="checked"
@@ -74,5 +84,5 @@ const ArticleFooter = () => {
   );
 };
 
-export default ArticleFooter;
+export default RevisionFooter;
 

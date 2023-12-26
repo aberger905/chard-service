@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Input, Select, Checkbox, Card, InputNumber, Button, Radio, Modal } from 'antd';
+import { Form, Input, Upload, Select, Checkbox, Card, InputNumber, message, Button, Radio, Modal } from 'antd';
 import SubjectExamples from './subjectExamples';
 import { FaSpinner } from "react-icons/fa";
 import sendSubmission from '../utils/sendSubmission';
+import { UploadFile } from 'antd/lib/upload/interface';
+import API_BASE from '../settings';
 
 const ArticleForm: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({});
-  const [selectedType, setSelectedType] = useState('')
+  const [selectedType, setSelectedType] = useState('');
+  const [uploaded, setUploaded] = useState(false);
   const navigate = useNavigate();
   const [form] = Form.useForm();
-  const totalSteps = 6;
+  const totalSteps = 7;
 
   const { Option } = Select
   const next = async () => {
@@ -155,10 +158,81 @@ const renderStep = () => {
                       </div>
                        </>
                       )
-                    case 4:
+                      case 4:
+                        return (
+                          <>
+                            <div key={4} className='slide-in'>
+                              <div className='mb-5'>
+                                <h1 className='text-2xl mb-2 font-anton'>Upload Header Image</h1>
+                                <p>Select an image to use as the header for your article.</p>
+                              </div>
+                              <Form.Item
+                                name="headerImage"
+                                valuePropName='fileList'
+                                getValueFromEvent={(event) => {
+                                  return event?.fileList;
+                                }}
+                                rules={[
+                                  {
+                                    required: false
+                                  },
+                                ]}
+                              >
+                             <Upload
+                                    name="headerImage"
+                                    maxCount={1}
+                                    action={`${API_BASE}/article/image`}
+                                    beforeUpload={(file) => {
+                                      const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+                                      if (!isJpgOrPng) {
+                                        message.error('You can only upload JPG/PNG file!');
+                                        return Upload.LIST_IGNORE;
+                                      }
+                                      const isLt2M = file.size / 1024 / 1024 < 2;
+                                      if (!isLt2M) {
+                                        message.error('Image must smaller than 2MB!');
+                                        return Upload.LIST_IGNORE;
+                                      }
+
+                                      return new Promise((resolve, reject) => {
+                                        const img = new Image();
+                                        img.src = URL.createObjectURL(file);
+                                        img.onload = () => {
+                                          const width = img.naturalWidth;
+                                          const height = img.naturalHeight;
+
+                                          // Checking for more horizontal image
+                                          if (width < height) {
+                                            message.error('Please upload a more horizontal image!');
+                                            reject(Upload.LIST_IGNORE);
+                                          }
+                                          resolve(true);
+                                        };
+                                        img.onerror = reject;
+                                      });
+                                    }}
+                                    onChange={info => {
+                                      if (info.file.status === 'done') {
+                                        console.log('File uploaded successfully', info.file.response.imageUrl);
+
+                                        form.setFieldsValue({headerImage: [info.file.response.imageUrl]}); // setting image url as form field value
+                                        setUploaded(true);
+                                      } else if (info.file.status === 'error') {
+                                        console.error('Upload failed:', info.file.error);
+                                      }
+                                  }}
+                                >
+                                    <Button >Upload Image Here</Button>
+                                    <p className={`${uploaded ? 'text-green-600' : 'text-red-600'}`}>{uploaded ? 'Image uploaded!' : 'No image uploaded'}</p>
+                                </Upload>
+                              </Form.Item>
+                            </div>
+                          </>
+                        )
+                    case 5:
                       return (
                         <>
-                        <div key={4} className='slide-in'>
+                        <div key={5} className='slide-in'>
                         <div className='mb-5'>
                         <h1 className='text-2xl mb-2 font-anton'>Receive Your Article Link</h1>
                         <p>Enter your email address below, and we'll send you a direct link to the article.</p>
@@ -181,10 +255,10 @@ const renderStep = () => {
                       </div>
                        </>
                       )
-                      case 5:
+                      case 6:
                         return (
                           <>
-                          <div key={5} className='slide-in'>
+                          <div key={6} className='slide-in'>
                           <div className='mb-5'>
                           <h1 className='text-2xl mb-2 font-anton'>Final Review and Confirmation</h1>
                           <p>Please review your answers carefully. <strong>Once submitted, your story cannot be altered.</strong> Are you confident that your submission reflects your narrative in full detail?</p>

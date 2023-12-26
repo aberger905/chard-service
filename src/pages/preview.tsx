@@ -8,6 +8,7 @@ interface Article {
   title: string;
   content: string;
   plan: string;
+  image: any;
 }
 
 const Preview = () => {
@@ -56,7 +57,7 @@ const Preview = () => {
         </div>
       )}
       </div>
-      <div className='w-[90%] sm:w-[50rem] border rounded-lg p-2 bg-white shadow-lg fadeUp mb-36'>
+      <div className='w-[90%] sm:w-[50rem] border rounded-lg p-2 bg-white shadow-lg fadeUp mb-5'>
       <div>
       { article ? <h1 className='text-3xl font-bold mb-5'>{article ? article.title : ''}</h1> :
                 <div className="animate-pulse flex space-x-4">
@@ -81,6 +82,12 @@ const Preview = () => {
            <h1 className='text-green-600 text-2xl'>Approved for Publication</h1>
         </div> }
       </div>
+        {article && article.image && (
+          <div className='flex justify-center items-center mb-5'>
+          <div className="h-96 w-[90%] bg-cover bg-center border rounded-lg" style={{ backgroundImage: `url(${article?.image})` }}>
+        </div>
+        </div>
+        )}
       <div>
         {article ? JSON.parse(article.content).map((paragraph: string, index: number) => (
           <React.Fragment key={index}>
@@ -134,8 +141,8 @@ const Preview = () => {
         }
       </div>
       </div>
+      <ArticleFooter />
     </div>
-    <ArticleFooter />
     </div>
     </>
   )

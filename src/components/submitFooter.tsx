@@ -39,7 +39,7 @@ const ArticleFooter = () => {
   };
 
   return (
-    <div className="w-[90%] sm:w-96 fixed left-1/2 bottom-3 bg-white p-4 shadow-md transform -translate-x-1/2 border rounded-3xl">
+    <div className="w-[90%] sm:w-96 bg-white p-4 shadow-md border rounded-3xl mb-5">
       <Form
         form={form}
         onFinish={onFinish}

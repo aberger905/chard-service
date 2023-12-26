@@ -56,7 +56,7 @@ const RevisionPreview = () => {
 
           <Tabs defaultActiveKey="2">
           <TabPane tab="Original Article" key="1">
-          <div className='w-[90%] sm:w-[50rem] border rounded-lg p-2 bg-white shadow-lg fadeUp mb-56'>
+          <div className='w-[90%] sm:w-[50rem] border rounded-lg p-2 bg-white shadow-lg fadeUp mb-5'>
               <div>
               { article ? <h1 className='text-3xl font-bold mb-5'>{article ? article.title : ''}</h1> :
                 <div className="animate-pulse flex space-x-4">

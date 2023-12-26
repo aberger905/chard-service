@@ -76,7 +76,7 @@ const Pricing: React.FC = () => {
         <p>3-Day Turnaround</p>
         </div>
         <div className='flex items-center mt-1'>
-        <div className='text-green-400'><FaCheck /></div>
+        <div className='text-yellow-400'><FaStar /></div>
         <p>Published Online</p>
         </div>
         <div className='flex items-center mt-1'>
@@ -113,7 +113,7 @@ const Pricing: React.FC = () => {
         <p>24-Hour Turnaround</p>
         </div>
         <div className='flex items-center mt-1'>
-        <div className='text-green-400'><FaCheck /></div>
+        <div className='text-yellow-400'><FaStar /></div>
         <p>Published Online</p>
         </div>
         <div className='flex items-center mt-1'>

@@ -10,7 +10,8 @@ interface Article {
   title: string;
   content: string;
   plan: string;
-  revised: any
+  revised: any;
+  image: any
 }
 
 const RevisionPreview = () => {
@@ -81,6 +82,12 @@ const RevisionPreview = () => {
                   <h1 className='text-green-600 text-2xl'>Approved for Publication</h1>
                 </div> }
               </div>
+              {article && article.image && (
+                <div className='flex justify-center items-center mb-5'>
+                <div className="h-96 w-[90%] bg-cover bg-center border rounded-lg" style={{ backgroundImage: `url(${article?.image})` }}>
+              </div>
+              </div>
+              )}
               <div>
                 {article ? JSON.parse(article.content).map((paragraph: string, index: number) => (
                   <React.Fragment key={index}>
@@ -136,7 +143,7 @@ const RevisionPreview = () => {
               </div>
           </TabPane>
           <TabPane tab="Revised Article" key="2">
-          <div className='w-[90%] sm:w-[50rem] border rounded-lg p-2 bg-white shadow-lg fadeUp mb-56'>
+          <div className='w-[90%] sm:w-[50rem] border rounded-lg p-2 bg-white shadow-lg fadeUp mb-5'>
               <div>
               { article ? <h1 className='text-3xl font-bold mb-5'>{article ? article.revised.title : ''}</h1> :
                 <div className="animate-pulse flex space-x-4">
@@ -161,6 +168,12 @@ const RevisionPreview = () => {
                   <h1 className='text-green-600 text-2xl'>Approved for Publication</h1>
                 </div> }
               </div>
+              {article && article.image && (
+                  <div className='flex justify-center items-center mb-5'>
+                  <div className="h-96 w-[90%] bg-cover bg-center border rounded-lg" style={{ backgroundImage: `url(${article?.image})` }}>
+                </div>
+                </div>
+                )}
               <div>
                 {article ? article.revised.content.map((paragraph: string, index: number) => (
                   <React.Fragment key={index}>
@@ -216,8 +229,8 @@ const RevisionPreview = () => {
               </div>
           </TabPane>
         </Tabs>
+        <RevisionFooter />
     </div>
-    <RevisionFooter />
     </div>
     </>
   )

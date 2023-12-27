@@ -1,12 +1,13 @@
-
+import banner from '../assets/team2.svg'
 
 const About = () => {
 
   return (
     <>
-    <div className='flex justify-center items-center min-h-screen'>
-      <div className='w-[90%] md:w-[56rem] fadeUp mt-5'>
+    <div className='flex justify-center items-center  min-h-screen'>
+      <div className='w-[90%] md:w-[56rem] fadeUp mt-5 flex flex-col justify-center items-center'>
       <h1 className='text-3xl font-anton text-center'>About Us</h1>
+      <img className='w-[50%] sm:w-48 mt-5 mb-5' src={banner} alt="team" />
       <br />
       <p className='text-center'>Welcome to Journova, where extraordinary stories of ordinary people take center stage. Founded by a passionate digital journalism & media professional, Journova is a haven for storytelling, spotlighting inspiring narratives often overlooked.</p>
       <br />

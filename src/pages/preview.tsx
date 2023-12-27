@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
 import { useParams, Link } from 'react-router-dom';
 import fetchArticle from '../utils/fetchArticle';
 import ArticleFooter from '../components/submitFooter';
@@ -14,6 +15,12 @@ interface Article {
 const Preview = () => {
   const [article, setArticle] = useState<Article | null>(null);
   const { slug } = useParams();
+  const componentRef: any = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: 'News-Article',
+  })
+
 
   useEffect(() => {
 
@@ -56,8 +63,9 @@ const Preview = () => {
           <p>Your purchase of the Premium Plan includes the option for one revision. If the article doesn't meet your expectations, feel free to <Link to='/revision'>[click here]</Link> to leave a note for our journalists. We encourage thoughtful consideration before requesting a revision to ensure clarity and precision in adjustments </p>
         </div>
       )}
+      <button onClick={handlePrint} className='border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition rounded-lg p-2 text-sm mt-3'>Save and Print</button>
       </div>
-      <div className='w-[90%] sm:w-[50rem] border rounded-lg p-2 bg-white shadow-lg fadeUp mb-5'>
+      <div ref={componentRef} className='w-[90%] sm:w-[50rem] border rounded-lg p-10 bg-white shadow-lg fadeUp mb-5'>
       <div>
       { article ? <h1 className='text-3xl font-bold mb-5'>{article ? article.title : ''}</h1> :
                 <div className="animate-pulse flex space-x-4">
@@ -84,7 +92,7 @@ const Preview = () => {
       </div>
         {article && article.image && (
           <div className='flex justify-center items-center mb-5'>
-          <div className="h-96 w-[90%] bg-cover bg-center border rounded-lg" style={{ backgroundImage: `url(${article?.image})` }}>
+          <div className="h-96 w-full bg-cover bg-center border rounded-lg" style={{ backgroundImage: `url(${article?.image})` }}>
         </div>
         </div>
         )}

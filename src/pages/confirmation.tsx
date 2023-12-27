@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import banner from '../assets/newspapers.png'
+import banner from '../assets/well_done.svg'
 import sendEmail from '../utils/sendEmail';
 
 
@@ -18,11 +18,11 @@ const Confirmation = () => {
 
   return (
     <>
-    <div className='flex flex-col justify-center items-center min-h-screen'>
-      <div className='w-[90%] flex flex-col justify-center items-center fadeUp mt-5 mb-5'>
-      <h1 className='text-3xl sm:text-4xl font-bold mb-5 text-center'>Congratulations on Taking the First Step!</h1>
+    <div className='flex flex-col justify-center items-center min-h-screen fadeUp'>
+      <div className='w-[90%] flex flex-col justify-center items-center mt-5 mb-5'>
+      <h1 className='text-3xl sm:text-4xl font-anton mb-5 text-center'>Congratulations on Taking the First Step!</h1>
       <img className='w-[90%] sm:w-96 mt-5 mb-5' src={banner} alt="newspaper graphic" />
-      <p className='text-center text-xl font-bold'>Thank you for your submission! Our team of skilled journalists is ready to bring your story to life. We're excited to start working on your article.</p>
+      <p className='text-center text-xl font-anton'>Thank you for your submission! Our team of skilled journalists is ready to bring your story to life. We're excited to start working on your article.</p>
       <br />
       <p className="text-gray-700 mb-3 text-lg">Here's what happens next:</p>
                 <ul className="text-gray-600 list-inside list-disc mb-4 text-left text-lg">

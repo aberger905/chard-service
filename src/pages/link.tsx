@@ -21,9 +21,9 @@ const Link = () => {
     }
   };
 
-  useEffect(() => {
-    handleEmail();
-  }, [])
+  // useEffect(() => {
+  //   handleEmail();
+  // }, [])
 
 
   return (

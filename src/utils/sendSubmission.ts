@@ -3,9 +3,9 @@ import API_BASE from "../settings";
 
 interface FormData {
   articleType: string;
-  fullName: string;
+  fistlName: string;
+  lastName: string;
   pronouns: string;
-  age: string;
   subject: string;
   story: string;
   email: string;

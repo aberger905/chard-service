@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import fetchArticle from '../../utils/fetchArticle';
-import ArticleFooter from '../../components/submitFooter';
 import { Tabs } from 'antd';
 import RevisionFooter from '../../components/revisionSubmit';
 const { TabPane } = Tabs;
@@ -54,10 +53,9 @@ const RevisionPreview = () => {
       <h1 className='text-3xl font-anton'>Article Previews: Original and Revised</h1>
       <p className=''>Explore both the original and revised versions of your article. Carefully review each to see the changes and ensure they meet your expectations. Once satisfied, please agree to our publication policy, a crucial step for us to proceed with publicizing your article on our news platforms.</p>
       </div>
-
           <Tabs defaultActiveKey="2">
           <TabPane tab="Original Article" key="1">
-          <div className='w-[90%] sm:w-[50rem] border rounded-lg p-2 bg-white shadow-lg fadeUp mb-5'>
+          <div className='w-[90%] sm:w-[50rem] border rounded-lg p-3 sm:p-10 bg-white shadow-lg fadeUp mb-5'>
               <div>
               { article ? <h1 className='text-3xl font-bold mb-5'>{article ? article.title : ''}</h1> :
                 <div className="animate-pulse flex space-x-4">
@@ -84,7 +82,7 @@ const RevisionPreview = () => {
               </div>
               {article && article.image && (
                 <div className='flex justify-center items-center mb-5'>
-                <div className="h-96 w-[90%] bg-cover bg-center border rounded-lg" style={{ backgroundImage: `url(${article?.image})` }}>
+                <div className="h-96 w-full bg-cover bg-center border rounded-lg" style={{ backgroundImage: `url(${article?.image})` }}>
               </div>
               </div>
               )}
@@ -143,7 +141,7 @@ const RevisionPreview = () => {
               </div>
           </TabPane>
           <TabPane tab="Revised Article" key="2">
-          <div className='w-[90%] sm:w-[50rem] border rounded-lg p-2 bg-white shadow-lg fadeUp mb-5'>
+          <div className='w-[90%] sm:w-[50rem] border rounded-lg p-3 sm:p-10 bg-white shadow-lg fadeUp mb-5'>
               <div>
               { article ? <h1 className='text-3xl font-bold mb-5'>{article ? article.revised.title : ''}</h1> :
                 <div className="animate-pulse flex space-x-4">
@@ -170,7 +168,7 @@ const RevisionPreview = () => {
               </div>
               {article && article.image && (
                   <div className='flex justify-center items-center mb-5'>
-                  <div className="h-96 w-[90%] bg-cover bg-center border rounded-lg" style={{ backgroundImage: `url(${article?.image})` }}>
+                  <div className="h-96 w-full bg-cover bg-center border rounded-lg" style={{ backgroundImage: `url(${article?.image})` }}>
                 </div>
                 </div>
                 )}

@@ -63,7 +63,7 @@ const renderStep = () => {
                     return (
                       <>
                       <div key={0} className='slide-in'>
-                        <h1 className='text-2xl mb-2 font-anton'>Choosing Your Article Type</h1>
+                        <h1 className='text-2xl mb-2 font-anton'>Choosing Your Article Type - click one</h1>
                         <Card
                           title="Highlighted Article"
                           bordered={true}
@@ -91,7 +91,7 @@ const renderStep = () => {
                         </Card>
 
                         {/* Hidden Form.Item to store the selected value */}
-                        <Form.Item name="articleType" hidden>
+                        <Form.Item name="articleType" rules={[{ required: true, message: 'Please select an article type!' }]} hidden>
                           <Input />
                         </Form.Item>
                       </div>
@@ -102,8 +102,11 @@ const renderStep = () => {
                       <>
                       <div key={1} className='slide-in'>
                       <h1 className='text-2xl mb-2 font-anton'>Personal Details</h1>
-                      <Form.Item label="Full Name" name="fullName" rules={[{ required: true }]}>
-                        <Input placeholder="Full Name" />
+                      <Form.Item label="First Name" name="firstName" rules={[{ required: true }]}>
+                        <Input placeholder="First Name" />
+                      </Form.Item>
+                      <Form.Item label="Last Name" name="lastName" rules={[{ required: true }]}>
+                        <Input placeholder="Last Name" />
                       </Form.Item>
                       <Form.Item label="Pronouns (what to refer to you by in the article)" name="pronouns" rules={[{ required: true }]}>
                         <Select placeholder="Select your pronouns" allowClear>
@@ -111,9 +114,6 @@ const renderStep = () => {
                           <Option value="she/her">She/Her</Option>
                           <Option value="they/them">They/Them</Option>
                         </Select>
-                      </Form.Item>
-                      <Form.Item label="Age" name="age">
-                        <InputNumber placeholder="Age" />
                       </Form.Item>
                     </div>
                     </>

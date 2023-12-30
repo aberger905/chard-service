@@ -15,6 +15,7 @@ import Pricing from './pages/pricing';
 import Revision from './pages/revision/revision';
 import RevisionPreview from './pages/revision/revisionPreview';
 import RevisionConfirmation from './pages/revision/submissionSuccess';
+import MyArticle from './pages/myArticle';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
       <Route path='/revision' element={ <Revision /> } />
       <Route path='/revision/:slug' element={ <RevisionPreview /> } />
       <Route path='/revision/confirmation' element={ <RevisionConfirmation /> } />
+      <Route path='/my-article/:slug' element={ <MyArticle /> } />
     </Routes>
    </BrowserRouter>
  </>

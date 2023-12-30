@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
 import { useParams, Link } from 'react-router-dom';
 import fetchArticle from '../utils/fetchArticle';
-import ArticleFooter from '../components/submitFooter';
 
 
 interface Article {
@@ -11,10 +11,14 @@ interface Article {
   image: any;
 }
 
-const Preview = () => {
+const MyArticle = () => {
   const [article, setArticle] = useState<Article | null>(null);
   const { slug } = useParams();
-
+  const componentRef: any = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: 'My-News-Article',
+  })
 
 
   useEffect(() => {
@@ -50,16 +54,11 @@ const Preview = () => {
     <div className=' bg-gradient-to-t from-gray-300 to white min-h-screen'>
     <div className='flex flex-col justify-center items-center'>
       <div className='w-[90%] sm:w-[50rem] mb-5 mt-5 fadeUp'>
-      <h1 className='text-3xl font-anton'>Article Preview</h1>
-      <p className=''>Here is your basic article preview! Please read over the content carefully to ensure it aligns with your expectations. Once you are ready, we ask that you agree to our publication policy. This step is essential before we can publish your article to one of our partnered news platforms for public viewing. </p>
-      {article && article.plan === 'premium' && (
-        <div>
-          <h1 className='font-anton'>* 1 revision allowed *</h1>
-          <p>Your purchase of the Premium Plan includes the option for one revision. If the article doesn't meet your expectations, feel free to <Link to='/revision'>[click here]</Link> to leave a note for our journalists. We encourage thoughtful consideration before requesting a revision to ensure clarity and precision in adjustments </p>
-        </div>
-      )}
+      <h1 className='text-3xl font-anton'>My Article</h1>
+      <p className=''>Welcome to your personalized article space! Below you'll find the final version of your story. You now have the option to save or print your article for personal keeping.</p>
+      <button onClick={handlePrint} className='border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition rounded-lg p-2 text-sm mt-3'>Save and Print</button>
       </div>
-      <div className='w-[90%] sm:w-[50rem] border rounded-lg p-3 sm:p-10 bg-white shadow-lg fadeUp mb-5'>
+      <div ref={componentRef} className='w-[90%] sm:w-[50rem] border rounded-lg p-3 sm:p-10 bg-white shadow-lg fadeUp mb-5'>
       <div>
       { article ? <h1 className='text-3xl font-bold mb-5'>{article ? article.title : ''}</h1> :
                 <div className="animate-pulse flex space-x-4">
@@ -77,12 +76,9 @@ const Preview = () => {
       </div>
       <div className='mb-5 flex'>
         <div>
-        <p><strong>Author Name </strong>| Publication Name</p>
+        <p><strong>Author Name </strong>| { article && article.plan === 'article' ? 'Journova' : 'Vista World News'}</p>
         <p className='text-sm text-gray-700'>Published {new Date(Date.now()).toDateString()}</p>
         </div>
-        { article && <div className='border rounded-lg border-green-600 p-3 ml-3'>
-                  <h1 className='text-green-600 text-2xl'>Approved for Publication</h1>
-                </div> }
       </div>
         {article && article.image && (
           <div className='flex justify-center items-center mb-5'>
@@ -143,11 +139,10 @@ const Preview = () => {
         }
       </div>
       </div>
-      <ArticleFooter />
     </div>
     </div>
     </>
   )
 }
 
-export default Preview;
+export default MyArticle;

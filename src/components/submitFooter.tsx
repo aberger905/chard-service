@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Form, Checkbox, Modal, Button } from 'antd';
 import PubPolicy from './publicationPolicy';
 import publishArticle from '../utils/publishArticle';
+import sendEmail from '../utils/sendEmail';
 
 const ArticleFooter = () => {
   const [form] = Form.useForm();
@@ -21,7 +22,8 @@ const ArticleFooter = () => {
   const handleSubmit = async (version: string) => {
 
     try {
-      await publishArticle(version)
+      await publishArticle(version);
+      await sendEmail();
     } catch (e) {
       console.error('error submitting article')
     }
@@ -39,7 +41,7 @@ const ArticleFooter = () => {
   };
 
   return (
-    <div className="w-[90%] sm:w-96 bg-white p-4 shadow-md border rounded-3xl mb-5">
+    <div className="w-[90%] sm:w-96 bg-white p-4 shadow-md border rounded-lg mb-5">
       <Form
         form={form}
         onFinish={onFinish}

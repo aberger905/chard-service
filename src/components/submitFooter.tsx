@@ -23,7 +23,6 @@ const ArticleFooter = () => {
 
     try {
       await publishArticle(version);
-      await sendEmail();
     } catch (e) {
       console.error('error submitting article')
     }
@@ -33,7 +32,7 @@ const ArticleFooter = () => {
   const onFinish = () => {
     console.log('Article submitted for publication');
     handleSubmit('original')
-    navigate('/publish');
+    navigate('/link');
   };
 
   const onFormValuesChange = (_: any, allValues: any) => {

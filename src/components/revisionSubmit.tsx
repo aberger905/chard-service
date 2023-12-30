@@ -23,7 +23,6 @@ const RevisionFooter = () => {
 
     try {
       await publishArticle(version);
-      await sendEmail();
     } catch (e) {
       console.error('error submitting article')
     }
@@ -33,7 +32,7 @@ const RevisionFooter = () => {
   const onFinish = (values: any) => {
     console.log('Selected Article Version:', values.articleVersion);
     handleSubmit(values.articleVersion);
-    navigate('/publish');
+    navigate('/link');
   };
 
   const onFormValuesChange = (_: any, allValues: any) => {

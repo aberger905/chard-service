@@ -10,7 +10,8 @@ interface Article {
   content: string;
   plan: string;
   revised: any;
-  image: any
+  image: any;
+  published: any;
 }
 
 const RevisionPreview = () => {
@@ -227,7 +228,7 @@ const RevisionPreview = () => {
               </div>
           </TabPane>
         </Tabs>
-        <RevisionFooter />
+        { article && article.published === false && <RevisionFooter /> }
     </div>
     </div>
     </>

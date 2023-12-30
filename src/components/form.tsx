@@ -6,6 +6,7 @@ import { FaSpinner } from "react-icons/fa";
 import sendSubmission from '../utils/sendSubmission';
 import { UploadFile } from 'antd/lib/upload/interface';
 import API_BASE from '../settings';
+import landscape from '../assets/landscape.jpeg';
 
 const ArticleForm: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -163,8 +164,10 @@ const renderStep = () => {
                           <>
                             <div key={4} className='slide-in'>
                               <div className='mb-5'>
-                                <h1 className='text-2xl mb-2 font-anton'>Upload Header Image</h1>
-                                <p>Select an image to use as the header for your article.</p>
+                                <h1 className='text-2xl mb-2 font-anton'>Upload Header Image (optional)</h1>
+                                <p>Upload an image to use as the header for your article.</p>
+                                <img src={landscape} />
+                                <p><b>*Please upload images in landscape orientation only*</b></p>
                               </div>
                               <Form.Item
                                 name="headerImage"
@@ -203,7 +206,7 @@ const renderStep = () => {
 
                                           // Checking for more horizontal image
                                           if (width < height) {
-                                            message.error('Please upload a more horizontal image!');
+                                            message.error('Please upload an image in landscape orientation!');
                                             reject(Upload.LIST_IGNORE);
                                           }
                                           resolve(true);

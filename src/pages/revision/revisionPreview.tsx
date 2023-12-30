@@ -56,7 +56,7 @@ const RevisionPreview = () => {
       </div>
           <Tabs defaultActiveKey="2">
           <TabPane tab="Original Article" key="1">
-          <div className='w-[90%] sm:w-[50rem] border rounded-lg p-3 sm:p-10 bg-white shadow-lg fadeUp mb-5'>
+          <div className='w-full max-w-[50rem] border rounded-lg p-3 sm:p-10 bg-white shadow-lg fadeUp mb-5'>
               <div>
               { article ? <h1 className='text-3xl font-bold mb-5'>{article ? article.title : ''}</h1> :
                 <div className="animate-pulse flex space-x-4">
@@ -72,13 +72,13 @@ const RevisionPreview = () => {
               </div>
               }
               </div>
-              <div className='mb-5 flex'>
+              <div className='mb-5 flex flex-col sm:flex-row'>
                 <div>
                 <p><strong>Author Name </strong>| Publication Name</p>
                 <p className='text-sm text-gray-700'>Published {new Date(Date.now()).toDateString()}</p>
                 </div>
                 { article && <div className='border rounded-lg border-green-600 p-3 ml-3'>
-                  <h1 className='text-green-600 text-2xl'>Approved for Publication</h1>
+                  <h1 className='text-green-600 text-center text-2xl'>Approved for Publication</h1>
                 </div> }
               </div>
               {article && article.image && (
@@ -142,7 +142,7 @@ const RevisionPreview = () => {
               </div>
           </TabPane>
           <TabPane tab="Revised Article" key="2">
-          <div className='w-[90%] sm:w-[50rem] border rounded-lg p-3 sm:p-10 bg-white shadow-lg fadeUp mb-5'>
+          <div className='w-full max-w-[50rem] border rounded-lg p-3 sm:p-10 bg-white shadow-lg fadeUp mb-5'>
               <div>
               { article ? <h1 className='text-3xl font-bold mb-5'>{article ? article.revised.title : ''}</h1> :
                 <div className="animate-pulse flex space-x-4">
@@ -158,13 +158,13 @@ const RevisionPreview = () => {
               </div>
               }
               </div>
-              <div className='mb-5 flex'>
+              <div className='mb-5 flex flex-col sm:flex-row'>
                 <div>
                 <p><strong>Author Name </strong>| Publication Name</p>
                 <p className='text-sm text-gray-700'>Published {new Date(Date.now()).toDateString()}</p>
                 </div>
                 { article && <div className='border rounded-lg border-green-600 p-3 ml-3'>
-                  <h1 className='text-green-600 text-2xl'>Approved for Publication</h1>
+                  <h1 className='text-green-600 text-center text-2xl'>Approved for Publication</h1>
                 </div> }
               </div>
               {article && article.image && (

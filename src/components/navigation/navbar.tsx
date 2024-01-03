@@ -10,7 +10,7 @@ const Navbar = () => {
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between items-center"> {/* Adjusted for alignment */}
                     {/* Website Logo */}
-                    <Link to="/" className="flex items-center py-4 px-2">
+                    <Link to="http://journova.org" className="flex items-center py-4 px-2">
                         <span className="text-3xl text-white font-anton">Journova</span>
                     </Link>
 

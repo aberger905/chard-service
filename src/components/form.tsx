@@ -109,7 +109,7 @@ const renderStep = () => {
                       <Form.Item label="Last Name" name="lastName" rules={[{ required: true }]}>
                         <Input placeholder="Last Name" />
                       </Form.Item>
-                      <Form.Item label="Pronouns (what to refer to you by in the article)" name="pronouns" rules={[{ required: true }]}>
+                      <Form.Item label="Pronouns" name="pronouns" rules={[{ required: true }]}>
                         <Select placeholder="Select your pronouns" allowClear>
                           <Option value="he/him">He/Him</Option>
                           <Option value="she/her">She/Her</Option>

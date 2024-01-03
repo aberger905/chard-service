@@ -35,10 +35,10 @@ const Navbar = () => {
             </div>
             {/* Mobile Menu */}
             <div className={`md:hidden bg-black ${isMenuOpen ? 'block' : 'hidden'}`}>
-                <Link to='/' className="block py-2 px-4 text-sm text-white hover:bg-gray-200">Create</Link>
-                <Link to='/' className="block py-2 px-4 text-sm text-white hover:bg-gray-200">Examples</Link>
-                <Link to='/pricing' className="block py-2 px-4 text-white text-sm hover:bg-gray-200">Pricing</Link>
-                <Link to='/about' className="block py-2 px-4 text-white text-sm hover:bg-gray-200">About</Link>
+                <Link to='/' onClick={() => setIsMenuOpen(false)} className="block py-2 px-4 text-sm text-white hover:bg-gray-500">Create</Link>
+                <Link to='/' onClick={() => setIsMenuOpen(false)} className="block py-2 px-4 text-sm text-white hover:bg-gray-500">Examples</Link>
+                <Link to='/pricing' onClick={() => setIsMenuOpen(false)} className="block py-2 px-4 text-white text-sm hover:bg-gray-500">Pricing</Link>
+                <Link to='/about' onClick={() => setIsMenuOpen(false)} className="block py-2 px-4 text-white text-sm hover:bg-gray-500">About</Link>
             </div>
         </nav>
     );

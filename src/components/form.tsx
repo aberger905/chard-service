@@ -64,7 +64,7 @@ const renderStep = () => {
                     return (
                       <>
                       <div key={0} className='slide-in'>
-                        <h1 className='text-2xl mb-2 font-anton'>Choosing Your Article Type - click one</h1>
+                        <h1 className='text-2xl mb-2 font-anton'>Choose Your Article Type - click one</h1>
                         <Card
                           title="Highlighted Article"
                           bordered={true}

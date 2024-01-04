@@ -54,7 +54,7 @@ const Preview = () => {
       <div className='w-[90%] sm:w-[50rem] mb-5 mt-5 fadeUp'>
       <h1 className='text-3xl font-anton'>Article Preview</h1>
       <p className=''>Here is your basic article preview! Please read over the content carefully to ensure it aligns with your expectations. Once you are ready, we ask that you agree to our publication policy. This step is essential before we can publish your article to one of our partnered news platforms for public viewing. </p>
-      {article && article.plan === 'premium' && article.revised === null && (
+      {article && article.plan === 'premium' && article.revised === null && article.published === false && (
         <div>
           <h1 className='font-anton'>* 1 revision allowed *</h1>
           <p>Your purchase of the Premium Plan includes the option for one revision. If the article doesn't meet your expectations, feel free to <Link to='/revision' className='border border-black p-1 rounded-lg'>click here</Link> to leave a note for our journalists. We encourage thoughtful consideration before requesting a revision to ensure clarity and precision in adjustments </p>

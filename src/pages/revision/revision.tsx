@@ -33,6 +33,8 @@ const Revision: React.FC = () => {
         <h1 className='text-2xl mb-2 font-anton'>Help Us Perfect Your Story</h1>
         <p>We apologize if our initial draft didn't fully meet your expectations. To help our journalists craft the article to your satisfaction, please provide detailed and specific revision notes below. Note: Due to high demand, revised articles may take up to 12 hours to return. We appreciate your patience and strive to ensure your story is told just right.</p>
         <br />
+        <p>If your revision is image related, kindly email us at support@journova.org instead.</p>
+        <br />
         <Form onFinish={onFinish}>
           <Form.Item
             name="revisionNotes"

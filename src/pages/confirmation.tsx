@@ -24,13 +24,13 @@ const Confirmation = () => {
       <img className='w-[90%] sm:w-96 mt-5 mb-5' src={banner} alt="newspaper graphic" />
       <p className='text-center text-xl font-anton'>Thank you for your submission! Our team of skilled journalists is ready to bring your story to life. We're excited to start working on your article.</p>
       <br />
-      <p className="text-gray-700 mb-3 text-lg">Here's what happens next:</p>
+      {/* <p className="text-gray-700 mb-3 text-lg">Here's what happens next:</p>
                 <ul className="text-gray-600 list-inside list-disc mb-4 text-left text-lg">
                     <li>Stay Informed: You'll receive regular updates via email at each stage of the process.</li>
                     <li>Review and Approval: Once your article is crafted, you'll have the opportunity to review it.</li>
                     <li>Ready for the World: After your approval, we'll prepare your article for publishing.</li>
-                </ul>
-      <p className='text-center text-lg text-gray-600'>We appreciate your contribution to our storytelling journey. Your story is now in the hands of our dedicated team, and we're eager to bring it to life. Keep an eye on your inbox for updates and the big reveal of your completed article!</p>
+                </ul> */}
+      <p className='text-center text-lg text-gray-600'>We appreciate your contribution to our storytelling journey. Your story is now in the hands of our dedicated team, and we're eager to bring it to life. Keep an eye on your inbox for updates and the big reveal of your completed article! If you don't receive a confirmation email within 5 minutes, kindly check your spam folder or contact us at support@journova.com for assistance.</p>
     </div>
     </div>
      {/* <div className="bg-gradient-to-t from-green-200 to white min-h-screen flex flex-col items-center justify-center">

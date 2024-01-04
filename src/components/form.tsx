@@ -191,7 +191,7 @@ const renderStep = () => {
                                         message.error('You can only upload JPG/PNG file!');
                                         return Upload.LIST_IGNORE;
                                       }
-                                      const isLt2M = file.size / 1024 / 1024 < 2;
+                                      const isLt2M = file.size / 1024 / 1024 < 4;
                                       if (!isLt2M) {
                                         message.error('Image must smaller than 2MB!');
                                         return Upload.LIST_IGNORE;

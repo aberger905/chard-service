@@ -59,10 +59,6 @@ const Payment: React.FC = () => {
         </div>
         <div className='flex items-center mt-1'>
         <div className='text-red-400'><FaTimes /></div>
-        <p>No SEO Optimization</p>
-        </div>
-        <div className='flex items-center mt-1'>
-        <div className='text-red-400'><FaTimes /></div>
         <p>No Shareable Links</p>
         </div>
         <div className='flex items-center mt-1'>
@@ -97,10 +93,6 @@ const Payment: React.FC = () => {
         </div>
         <div className='flex items-center mt-1'>
         <div className='text-green-400'><FaCheck /></div>
-        <p>SEO Optimization</p>
-        </div>
-        <div className='flex items-center mt-1'>
-        <div className='text-green-400'><FaCheck /></div>
         <p>Shareable Links</p>
         </div>
         <div className='flex items-center mt-1'>
@@ -132,10 +124,6 @@ const Payment: React.FC = () => {
         <div className='flex items-center mt-1'>
         <div className='text-yellow-400'><FaStar /></div>
         <p>Published Online</p>
-        </div>
-        <div className='flex items-center mt-1'>
-        <div className='text-green-400'><FaCheck /></div>
-        <p>SEO Optimization</p>
         </div>
         <div className='flex items-center mt-1'>
         <div className='text-green-400'><FaCheck /></div>

@@ -24,7 +24,7 @@ const Pricing: React.FC = () => {
         <p className='text-gray-500 text-center'>Professionally written article tailored to you</p>
         <h2 className='font-semibold text-4xl'>$59</h2>
         <p className='text-gray-500 text-center'>one time payment</p>
-        <button onClick={handleClick} className='border border-black  transition rounded-full  hover:bg-black hover:text-white px-5 py-2 w-[90%]'>Get Started</button>
+        <button onClick={handleClick} className='border border-2 border-black  transition rounded-full  hover:bg-black hover:text-white px-5 py-2 w-[90%]'>Get Started</button>
         <div className='mt-5 mb-5'>
         <div className='flex items-center mt-1'>
         <div className='text-green-400'><FaCheck /></div>
@@ -58,7 +58,7 @@ const Pricing: React.FC = () => {
         <p className='text-gray-500 text-center'>Professionally written article published on a news platform</p>
         <h2 className='font-semibold text-4xl'>$99</h2>
         <p className='text-gray-500 text-center'>one time payment</p>
-        <button onClick={handleClick} className='border border-black bg-black text-white transition rounded-full  hover:bg-slate-700 hover:border-slate-700 px-5 py-2 w-[90%]'>Get Started</button>
+        <button onClick={handleClick} className='border border-2 border-black bg-black text-white transition rounded-full  hover:bg-slate-700 hover:border-slate-700 px-5 py-2 w-[90%]'>Get Started</button>
         <div className='mt-5 mb-5'>
         <div className='flex items-center mt-1'>
         <div className='text-green-400'><FaCheck /></div>
@@ -92,7 +92,7 @@ const Pricing: React.FC = () => {
         <p className='text-gray-500 text-center'>Expedited 24-hour delivery and 1 revision</p>
         <h2 className='font-semibold text-4xl'>$149</h2>
         <p className='text-gray-500 text-center'>one time payment</p>
-        <button onClick={handleClick} className='border border-black  transition rounded-full  hover:bg-black hover:text-white px-5 py-2 w-[90%]'>Get Started</button>
+        <button onClick={handleClick} className='border border-2 border-black  transition rounded-full  hover:bg-black hover:text-white px-5 py-2 w-[90%]'>Get Started</button>
         <div className='mt-5 mb-5'>
         <div className='flex items-center mt-1'>
         <div className='text-green-400'><FaCheck /></div>

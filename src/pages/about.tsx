@@ -11,7 +11,7 @@ const About = () => {
       <br />
       <p className='text-center'>Welcome to Journova, where extraordinary stories of ordinary people take center stage. Founded by a passionate digital journalism & media professional, Journova is a haven for storytelling, spotlighting inspiring narratives often overlooked.</p>
       <br />
-      <p className='text-center'>We believe everyone has a story, from unsung heroes to achievers. Unlike traditional outlets, we collaborate with our community, amplifying narratives with authenticity. Jourova’s unique model involves individuals bearing the cost, ensuring a focus on genuine, personal accomplishments and stories.</p>
+      <p className='text-center'>We believe everyone has a story, from unsung heroes to achievers. Unlike traditional outlets, we collaborate with our community, amplifying narratives with authenticity. Journova’s unique model involves individuals bearing the cost, ensuring a focus on genuine, personal accomplishments and stories.</p>
       <br />
       <p className='text-center'>Join us on a journey of discovery, connection, and celebration—share your story, explore others', and collectively weave a tapestry of inspiration. At Journova, we celebrate the beauty of the human experience—one story at a time.</p>
       </div>

@@ -5,7 +5,7 @@ const About = () => {
   return (
     <>
     <div className='flex justify-center items-center  min-h-screen'>
-      <div className='w-[90%] md:w-[56rem] fadeUp mt-5 flex flex-col justify-center items-center'>
+      <div className='w-[90%] md:w-[56rem] fadeUp mt-5 flex flex-col justify-center items-center pb-8'>
       <h1 className='text-3xl font-anton text-center'>About Us</h1>
       <img className='w-[50%] sm:w-48 mt-5 mb-5' src={banner} alt="team" />
       <br />

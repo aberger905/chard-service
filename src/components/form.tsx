@@ -6,7 +6,7 @@ import { FaSpinner } from "react-icons/fa";
 import sendSubmission from '../utils/sendSubmission';
 import { UploadFile } from 'antd/lib/upload/interface';
 import API_BASE from '../settings';
-import landscape from '../assets/landscape.jpeg';
+import landscape from '../assets/landscape.png';
 
 const ArticleForm: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);

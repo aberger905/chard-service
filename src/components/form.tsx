@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Input, Upload, Select, Checkbox, Card, InputNumber, message, Button, Radio, Modal } from 'antd';
 import SubjectExamples from './subjectExamples';
-import { FaSpinner } from "react-icons/fa";
+import { FaLessThanEqual, FaSpinner } from "react-icons/fa";
 import sendSubmission from '../utils/sendSubmission';
 import { UploadFile } from 'antd/lib/upload/interface';
 import API_BASE from '../settings';
@@ -29,6 +29,67 @@ const ArticleForm: React.FC = () => {
       console.log('Validation Failed:', error);
     }
   };
+
+  const firstNameValidator = (_: any, value: any) => {
+    if (!value) {
+      return Promise.reject(new Error('Please enter your first name'));
+    }
+
+    if (value.length > 20) {
+      return Promise.reject(new Error('First name must be less than 20 characters'));
+    }
+
+    if (!/^[A-Za-z]+$/.test(value)) {
+      return Promise.reject(new Error('First name can only contain letters'));
+    }
+
+    return Promise.resolve();
+  };
+
+  const lastNameValidator = (_: any, value: any) => {
+    if (!value) {
+      return Promise.reject(new Error('Please enter your last name'));
+    }
+
+    if (value.length > 50) {
+      return Promise.reject(new Error('Last name must be less than 50 characters'));
+    }
+
+    // Allows letters, dashes, apostrophes, and spaces
+    if (!/^[A-Za-z\-' ]+$/.test(value)) {
+      return Promise.reject(new Error('Last name contains invalid characters'));
+    }
+
+    return Promise.resolve();
+  };
+
+  const maxWords = 1000; // Define the maximum number of words
+  const maxWordsSubject = 50
+const wordCountValidator = (_: any, value: any) => {
+  if (!value) {
+    return Promise.resolve(); // If no value, no validation error
+  }
+
+  const wordCount = value.trim().split(/\s+/).length;
+  if (wordCount > maxWords) {
+    return Promise.reject(new Error(`Your story must be no more than ${maxWords} words!`));
+  }
+
+  return Promise.resolve();
+};
+
+const wordCountValidatorSubject = (_: any, value: any) => {
+  if (!value) {
+    return Promise.resolve(); // If no value, no validation error
+  }
+
+  const wordCount = value.trim().split(/\s+/).length;
+  if (wordCount > maxWordsSubject) {
+    return Promise.reject(new Error(`Your theme must be no more than ${maxWordsSubject} words!`));
+  }
+
+  return Promise.resolve();
+};
 
 
   const back = () => {
@@ -103,10 +164,10 @@ const renderStep = () => {
                       <>
                       <div key={1} className='slide-in'>
                       <h1 className='text-2xl mb-2 font-anton'>Personal Details</h1>
-                      <Form.Item label="First Name" name="firstName" rules={[{ required: true }]}>
+                      <Form.Item label="First Name" name="firstName" rules={[ { validator: firstNameValidator}]}>
                         <Input placeholder="First Name" />
                       </Form.Item>
-                      <Form.Item label="Last Name" name="lastName" rules={[{ required: true }]}>
+                      <Form.Item label="Last Name" name="lastName" rules={[{ validator: lastNameValidator}]}>
                         <Input placeholder="Last Name" />
                       </Form.Item>
                       <Form.Item label="Pronouns" name="pronouns" rules={[{ required: true }]}>
@@ -131,7 +192,7 @@ const renderStep = () => {
                       <button type='button' onClick={showModal} className="text-blue-500 mt-3 cursor-pointer hover:underline">See Examples Here</button>
                       </div>
                       <Form.Item
-                          rules={[{ required: true, message: 'Please choose a theme' }]}
+                          rules={[{ required: true, message: 'Please choose a theme' }, { validator: wordCountValidatorSubject }]}
                           label=""
                           name="subject"
                         >
@@ -153,7 +214,7 @@ const renderStep = () => {
                         {/* <p>This is your space to share the details of your personal journey or experiences related to the chosen subject. Feel free to recount specific events, challenges you’ve faced, milestones you’ve achieved, or insights you’ve gained. Think of it as narrating a chapter from your life that vividly captures the essence of your story. The more descriptive and heartfelt, the better we can understand and convey your unique perspective in the article.</p> */}
                         <p>Now, let's get into your story. Tell us everything about what you've been through – the ups and downs, key moments, and how you felt about them. It's your chance to really paint a picture of your experiences related to the theme you chose. The more you share, the more vividly we can tell your story. Think of it as sharing a chapter from your life's book.</p>
                         </div>
-                      <Form.Item rules={[{ required: true, message: 'Please fill out your story' }]} label="" name="story">
+                      <Form.Item rules={[{ required: true, message: 'Please fill out your story' }, { validator: wordCountValidator }]} label="" name="story">
                         <Input.TextArea placeholder="Example: My journey began in the small town of Springfield, where I first discovered my passion for painting. Overcoming initial challenges, like limited resources and lack of mentorship, I persevered, driven by my love for art. A pivotal moment was when my work was featured in a local exhibition, leading to unexpected opportunities and growth. This experience taught me the importance of resilience and staying true to one's vision..." />
                       </Form.Item>
                       </div>

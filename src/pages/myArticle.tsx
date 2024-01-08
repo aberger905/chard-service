@@ -9,6 +9,7 @@ interface Article {
   content: string;
   plan: string;
   image: any;
+  author: string;
 }
 
 const MyArticle = () => {
@@ -76,7 +77,7 @@ const MyArticle = () => {
       </div>
       <div className='mb-5 flex'>
         <div>
-        <p><strong>Author Name </strong>| { article && article.plan === 'article' ? 'Journova' : 'Vista World News'}</p>
+        <p><strong>{article && article.author} </strong>| { article && article.plan === 'article' ? 'Journova' : 'Vista World News'}</p>
         <p className='text-sm text-gray-700'>Published {new Date(Date.now()).toDateString()}</p>
         </div>
       </div>

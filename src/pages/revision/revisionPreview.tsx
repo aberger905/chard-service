@@ -12,6 +12,7 @@ interface Article {
   revised: any;
   image: any;
   published: any;
+  author: string;
 }
 
 const RevisionPreview = () => {
@@ -74,11 +75,11 @@ const RevisionPreview = () => {
               </div>
               <div className='mb-5 flex flex-col sm:flex-row'>
                 <div>
-                <p><strong>Author Name </strong>| Publication Name</p>
+                <p><strong>{article && article.author} </strong>| {article && article.published ? 'Vista World News' : 'Publication Name' }</p>
                 <p className='text-sm text-gray-700'>Published {new Date(Date.now()).toDateString()}</p>
                 </div>
                 { article && <div className='border rounded-lg border-green-600 p-3 ml-3'>
-                  <h1 className='text-green-600 text-center text-2xl'>Approved for Publication</h1>
+                  <h1 className='text-green-600 text-center text-2xl'>{article.published ? 'Published' : 'Approved for Publication'}</h1>
                 </div> }
               </div>
               {article && article.image && (
@@ -159,11 +160,11 @@ const RevisionPreview = () => {
               </div>
               <div className='mb-5 flex flex-col sm:flex-row'>
                 <div>
-                <p><strong>Author Name </strong>| Publication Name</p>
+                <p><strong>{article && article.author} </strong>| {article && article.published ? 'Vista World News' : 'Publication Name'}</p>
                 <p className='text-sm text-gray-700'>Published {new Date(Date.now()).toDateString()}</p>
                 </div>
                 { article && <div className='border rounded-lg border-green-600 p-3 ml-3'>
-                  <h1 className='text-green-600 text-center text-2xl'>Approved for Publication</h1>
+                  <h1 className='text-green-600 text-center text-2xl'>{article.published ? 'Published' : 'Approved for Publication'}</h1>
                 </div> }
               </div>
               {article && article.image && (

@@ -11,6 +11,7 @@ interface Article {
   image: any;
   revised: any;
   published: any;
+  author: string;
 }
 
 const Preview = () => {
@@ -79,7 +80,7 @@ const Preview = () => {
       </div>
       <div className='mb-5 flex flex-col sm:flex-row'>
         <div>
-        <p><strong>Author Name </strong>| Publication Name</p>
+        <p><strong>{article && article.author} </strong>| Publication Name</p>
         <p className='text-sm text-gray-700'>Published {new Date(Date.now()).toDateString()}</p>
         </div>
         { article && <div className='border rounded-lg border-green-600 p-3 ml-3'>

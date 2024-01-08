@@ -59,7 +59,7 @@ const MyArticle = () => {
       <p className=''>Welcome to your personalized article space! Below you'll find the final version of your story. You now have the option to save or print your article for personal keeping.</p>
       <button onClick={handlePrint} className='border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition rounded-lg p-2 text-sm mt-3'>Save and Print</button>
       </div>
-      <div ref={componentRef} className='w-[90%] sm:w-[50rem] border rounded-lg p-3 sm:p-10 bg-white shadow-lg fadeUp mb-5'>
+      <div ref={componentRef} className='w-full sm:w-[50rem] border rounded-lg p-3 sm:p-10 bg-white shadow-lg fadeUp mb-5'>
       <div>
       { article ? <h1 className='text-3xl font-bold mb-5'>{article ? article.title : ''}</h1> :
                 <div className="animate-pulse flex space-x-4">

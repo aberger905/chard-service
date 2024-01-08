@@ -84,7 +84,7 @@ const RevisionPreview = () => {
               </div>
               {article && article.image && (
                 <div className='flex justify-center items-center mb-5'>
-                <img className="max-h-96 w-full border rounded-lg" src={article?.image} alt='header'/>
+                <img className="max-h-[28rem] border rounded-lg" src={article?.image} alt='header'/>
               </div>
               )}
               <div>
@@ -169,7 +169,7 @@ const RevisionPreview = () => {
               </div>
               {article && article.image && (
                   <div className='flex justify-center items-center mb-5'>
-                  <img className="max-h-96 w-full border rounded-lg" src={article?.image} alt='header'/>
+                  <img className="max-h-[28rem] border rounded-lg" src={article?.image} alt='header'/>
                 </div>
                 )}
               <div>

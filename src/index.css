@@ -49,6 +49,21 @@ code {
   animation: fadeUp 0.5s ease-out;
 }
 
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeDown {
+  animation: fadeDown 0.3s ease-out;
+}
+
 .selected-card {
   border: 2px solid blue !important;
 }

@@ -16,6 +16,7 @@ import Revision from './pages/revision/revision';
 import RevisionPreview from './pages/revision/revisionPreview';
 import RevisionConfirmation from './pages/revision/submissionSuccess';
 import MyArticle from './pages/myArticle';
+import Examples from './pages/examples';
 
 function App() {
   return (
@@ -24,9 +25,9 @@ function App() {
     <Navbar />
     <Routes>
       <Route path='/' element={ <Input /> } />
-      <Route path='/generate' element={ <FakeGenerate /> } />
+      {/* <Route path='/generate' element={ <FakeGenerate /> } /> */}
       <Route path='/payment' element={ <Payment />} />
-      <Route path='/article' element={ <RealGenerate /> } />
+      {/* <Route path='/article' element={ <RealGenerate /> } /> */}
       <Route path='/preview/:slug' element={ <Preview /> } />
       <Route path='/link' element={ <Link /> } />
       <Route path='/publish' element={ <GenerateLink /> } />
@@ -37,6 +38,7 @@ function App() {
       <Route path='/revision/:slug' element={ <RevisionPreview /> } />
       <Route path='/revision/confirmation' element={ <RevisionConfirmation /> } />
       <Route path='/my-article/:slug' element={ <MyArticle /> } />
+      <Route path='/examples' element={ <Examples />} />
     </Routes>
    </BrowserRouter>
  </>

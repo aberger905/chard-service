@@ -12,7 +12,9 @@ const Examples = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center items-center p-4">
       {articles.map((article, index) => (
+        <div className='flex justify-center items-center'>
          <ArticleCard key={index} image={article.image} title={article.title} description={article.description}/>
+        </div>
       ))}
       </div>
     </div>

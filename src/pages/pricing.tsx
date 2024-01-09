@@ -19,11 +19,11 @@ const Pricing: React.FC = () => {
     <h2 className='text-xl text-center mb-10 font-anton fadeUp'>Unlock the power of your narrative.</h2>
     <div className='flex flex-col md:flex-row justify-center items-center pb-8'>
       <div className='bg-white flex flex-col justify-center items-center border shadow-sm rounded-lg p-5 w-72 fadeUp'>
-        <p className='text-gray-500'>Basic</p>
+        <p className='text-gray-700'>Basic</p>
         <h2 className='text-lg mt-2 font-anton'>Article</h2>
-        <p className='text-gray-500 text-center'>Professionally written article tailored to you</p>
+        <p className='text-gray-700 text-center'>Professionally written article tailored to you</p>
         <h2 className='font-semibold text-4xl'>$59</h2>
-        <p className='text-gray-500 text-center'>one time payment</p>
+        <p className='text-gray-700 text-center'>one time payment</p>
         <button onClick={handleClick} className='border border-2 border-black  transition rounded-full  hover:bg-black hover:text-white px-5 py-2 w-[90%]'>Get Started</button>
         <div className='mt-5 mb-5'>
         <div className='flex items-center mt-1'>
@@ -55,9 +55,9 @@ const Pricing: React.FC = () => {
       <div className='bg-white flex flex-col justify-center items-center border border-2 border-blue-600 shadow-lg rounded-lg p-8 w-72 m-5 fadeUp'>
         <p className='text-blue-600 border border-blue-600 p-1 rounded-lg'>Most Popular</p>
         <h2 className='text-lg mt-2 font-anton'>Published Article</h2>
-        <p className='text-gray-500 text-center'>Professionally written article published on a news platform</p>
+        <p className='text-gray-700 text-center'>Professionally written article published on a news platform</p>
         <h2 className='font-semibold text-4xl'>$99</h2>
-        <p className='text-gray-500 text-center'>one time payment</p>
+        <p className='text-gray-700 text-center'>one time payment</p>
         <button onClick={handleClick} className='border border-2 border-black bg-black text-white transition rounded-full  hover:bg-slate-700 hover:border-slate-700 px-5 py-2 w-[90%]'>Get Started</button>
         <div className='mt-5 mb-5'>
         <div className='flex items-center mt-1'>
@@ -89,9 +89,9 @@ const Pricing: React.FC = () => {
       <div className='bg-white flex flex-col justify-center items-center border border-2 border-yellow-500 shadow-sm rounded-lg p-5 w-72 fadeUp'>
         <p className='text-yellow-500'>Premium</p>
         <h2 className='font-anton text-lg mt-2'>Published Article</h2>
-        <p className='text-gray-500 text-center'>Expedited 24-hour delivery and 1 revision</p>
+        <p className='text-gray-700 text-center'>Expedited 24-hour delivery and 1 revision</p>
         <h2 className='font-semibold text-4xl'>$149</h2>
-        <p className='text-gray-500 text-center'>one time payment</p>
+        <p className='text-gray-700 text-center'>one time payment</p>
         <button onClick={handleClick} className='border border-2 border-black  transition rounded-full  hover:bg-black hover:text-white px-5 py-2 w-[90%]'>Get Started</button>
         <div className='mt-5 mb-5'>
         <div className='flex items-center mt-1'>

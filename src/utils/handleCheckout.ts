@@ -1,8 +1,8 @@
 import { loadStripe } from '@stripe/stripe-js';
 
-import API_BASE from "../settings";
+import {API_BASE, STRIPE_KEY } from "../settings";
 
-const stripePromise = loadStripe('pk_test_51OMv6cLGU8dofAUr7WP2dwDQIyrk1OgR5Qhfr6n098kNIItNalBmhg29I8xmR6554bHPxzetBI8yrz7g8zruHWH900PBHHbJqx');
+const stripePromise = loadStripe(STRIPE_KEY);
 
 const handleCheckout = async (plan: string) => {
   const subIdString: any = localStorage.getItem('submissionId');

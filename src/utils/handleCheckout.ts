@@ -1,8 +1,8 @@
 import { loadStripe } from '@stripe/stripe-js';
 
-import {API_BASE, STRIPE_KEY } from "../settings";
+import API_BASE from "../settings";
 
-const stripePromise = loadStripe(STRIPE_KEY);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY as string);
 
 const handleCheckout = async (plan: string) => {
   const subIdString: any = localStorage.getItem('submissionId');

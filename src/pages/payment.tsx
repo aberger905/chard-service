@@ -15,7 +15,7 @@ const Payment: React.FC = () => {
 
   const handleClick = async (plan: string) => {
     setIsLoading(true);
-    console.log(plan)
+
     try {
       await handleCheckout(plan);
       // navigate to next page or handle post-payment logic

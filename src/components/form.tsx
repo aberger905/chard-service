@@ -106,7 +106,6 @@ const wordCountValidatorSubject = (_: any, value: any) => {
 
 
   const handleSubmit = async (values: any) => {
-    console.log('HERE ARE THE VALUES',formData)
 
     setIsLoading(true);
     try {

@@ -17,7 +17,7 @@ const ArticleForm: React.FC = () => {
   const [uploaded, setUploaded] = useState(false);
   const navigate = useNavigate();
   const [form] = Form.useForm();
-  const totalSteps = 7;
+  const totalSteps = 8;
 
   const { Option } = Select
   const next = async () => {
@@ -179,10 +179,28 @@ const renderStep = () => {
                     </div>
                     </>
                     );
-                  case 2:
+                    case 2:
+                      return (
+                        <>
+                        <div key={2} className='slide-in'>
+                        <div className='mb-5'>
+                        <h1 className='text-2xl mb-2 font-anton'>Who Are You in Their Story?</h1>
+                        <p>Let us know your connection to the person you're celebrating. Simply put, are you their family member, friend, coworker, or something else? This helps us tell the story from your perspective. You could write, for example, "A proud sister" or "A grateful team at work".</p>
+                        </div>
+                        <Form.Item
+                            rules={[{ required: true, message: 'Please tell us your relation to them' }, { validator: wordCountValidatorSubject }]}
+                            label=""
+                            name="narrator"
+                          >
+                            <Input.TextArea placeholder="Example: A caring nephew, Mike" />
+                          </Form.Item>
+                      </div>
+                       </>
+                      );
+                  case 3:
                     return (
                       <>
-                      <div key={2} className='slide-in'>
+                      <div key={3} className='slide-in'>
                       <div className='mb-5'>
                       <h1 className='text-2xl mb-2 font-anton'>Define the Theme of Your Article</h1>
                       <p>Who Are You Celebrating? Describe the essence of their story in a few words. Think of it like a headline that captures their spirit or achievements. For instance, 'Community Hero's Impact', 'Innovator in Tech', 'Dedicated Volunteer', or 'Family’s Heart and Soul'. Just a brief description helps us understand the special qualities of the person you're honoring!</p>
@@ -201,10 +219,10 @@ const renderStep = () => {
                     </div>
                      </>
                     );
-                    case 3:
+                    case 4:
                       return (
                         <>
-                        <div key={3} className='slide-in'>
+                        <div key={4} className='slide-in'>
                         <div className='mb-5'>
                         <h1 className='text-2xl mb-2 font-anton'>Tell Their Story</h1>
                         {/* <p>Now, let's get into your story. Tell us everything about what you've been through – the ups and downs, key moments, and how you felt about them. It's your chance to really paint a picture of your experiences related to the theme you chose. The more you share, the more vividly we can tell your story. Think of it as sharing a chapter from your life's book.</p> */}
@@ -216,10 +234,10 @@ const renderStep = () => {
                       </div>
                        </>
                       )
-                      case 4:
+                      case 5:
                         return (
                           <>
-                            <div key={4} className='slide-in'>
+                            <div key={5} className='slide-in'>
                               <div className='mb-5'>
                                 <h1 className='text-2xl mb-2 font-anton'>Upload Header Image (optional)</h1>
                                 <p>Upload an image to use as the header for your article.</p>
@@ -289,10 +307,10 @@ const renderStep = () => {
                             </div>
                           </>
                         )
-                    case 5:
+                    case 6:
                       return (
                         <>
-                        <div key={5} className='slide-in'>
+                        <div key={6} className='slide-in'>
                         <div className='mb-5'>
                         <h1 className='text-2xl mb-2 font-anton'>Receive Your Article Link</h1>
                         <p>Please provide your own email address below. We'll send the article link to you, the gift-giver, so you can surprise your chosen recipient at just the right moment.</p>
@@ -315,10 +333,10 @@ const renderStep = () => {
                       </div>
                        </>
                       )
-                      case 6:
+                      case 7:
                         return (
                           <>
-                          <div key={6} className='slide-in'>
+                          <div key={7} className='slide-in'>
                           <div className='mb-5'>
                           <h1 className='text-2xl mb-2 font-anton'>Final Review and Confirmation</h1>
                           <p>Please review your answers carefully. <strong>Once submitted, your story cannot be altered.</strong> Are you confident that your submission reflects your narrative in full detail?</p>

@@ -3,12 +3,13 @@ import API_BASE from "../settings";
 
 interface FormData {
   articleType: string;
-  fistlName: string;
+  firstName: string;
   lastName: string;
   pronouns: string;
   subject: string;
   story: string;
   email: string;
+  narrator: string;
 }
 
 const sendSubmission = async (formData: FormData | {}) => {

@@ -126,7 +126,7 @@ const renderStep = () => {
                       <div key={0} className='slide-in'>
                         <h1 className='text-2xl mb-2 font-anton'>Choose Your Article Type - click one</h1>
                         <Card
-                          title="Highlighted Article"
+                          title="Gift Article"
                           bordered={true}
                           onClick={() => {
                             setSelectedType('highlighted');
@@ -135,11 +135,11 @@ const renderStep = () => {
                           }
                           className={`${selectedType === 'highlighted' ? ' border-blue-600 transition m-3 shadow-xl font-semibold' : 'm-3'}  cursor-pointer`}
                         >
-                          <p>This type is all about you! If you have a special achievement or story, choose this. We'll focus on what makes your story unique and exciting.</p>
+                          <p>This option is all about celebrating someone special in your life. Whether it's for their remarkable achievements, inspiring journey, or a unique personal story. We'll focus on capturing the qualities that make their story inspiring and memorable.</p>
                         </Card>
 
                         <Card
-                          title="Featured Article"
+                          title="Personal Article"
                           bordered={true}
                           onClick={() => {
                             setSelectedType('featured');
@@ -148,7 +148,7 @@ const renderStep = () => {
                           }
                           className={`${selectedType === 'featured' ? ' border-blue-600 transition m-3 shadow-xl font-semibold' : 'm-3'}  cursor-pointer`}
                         >
-                          <p>Pick this to be part of a bigger story. You'll still be important, but you'll share the stage with a bigger theme, like trends in your industry or important social topics. It's great if you want to share your views or experiences as part of something larger.</p>
+                          <p>Choose this option if you're looking to highlight your own journey. Ideal for capturing significant milestones, challenges overcome, or unique experiences in your life. We'll work with you to bring out the essence of what makes your story distinct and engaging.</p>
                         </Card>
 
                         {/* Hidden Form.Item to store the selected value */}
@@ -162,14 +162,14 @@ const renderStep = () => {
                     return (
                       <>
                       <div key={1} className='slide-in'>
-                      <h1 className='text-2xl mb-2 font-anton'>Personal Details</h1>
-                      <Form.Item label="First Name" name="firstName" rules={[ { validator: firstNameValidator}]}>
+                      <h1 className='text-2xl mb-2 font-anton'>Details About the Person</h1>
+                      <Form.Item label="Persons First Name" name="firstName" rules={[ { validator: firstNameValidator}]}>
                         <Input placeholder="First Name" />
                       </Form.Item>
-                      <Form.Item label="Last Name" name="lastName" rules={[{ validator: lastNameValidator}]}>
+                      <Form.Item label="Persons Last Name" name="lastName" rules={[{ validator: lastNameValidator}]}>
                         <Input placeholder="Last Name" />
                       </Form.Item>
-                      <Form.Item label="Pronouns" name="pronouns" rules={[{ required: true }]}>
+                      <Form.Item label="Persons Pronouns" name="pronouns" rules={[{ required: true }]}>
                         <Select placeholder="Select your pronouns" allowClear>
                           <Option value="he/him">He/Him</Option>
                           <Option value="she/her">She/Her</Option>
@@ -185,9 +185,7 @@ const renderStep = () => {
                       <div key={2} className='slide-in'>
                       <div className='mb-5'>
                       <h1 className='text-2xl mb-2 font-anton'>Define the Theme of Your Article</h1>
-                      {/* <p>Please briefly state the central theme or topic of your article. This should be a concise overview or headline of what your article will be about. Think of it as a summary or the title of a chapter – it gives an idea of the story but doesn’t delve into the details. For instance, 'Overcoming Adversity in Competitive Sports', 'Finding Balance Between Work and Family', or 'My Journey with Learning a New Language'. Try to encapsulate your main idea in a sentence or two.</p> */}
-                      {/* <p>Please specify the broader topic or theme you want your article to focus on. This should be an overarching subject that resonates with your personal experiences or stories. For example, it could be about a significant challenge you’ve overcome, a remarkable achievement, or an important issue you're passionate about. Think of it as the central thread that ties your narrative together.</p> */}
-                      <p>What's your article about? Share the main idea in a few words, like a short summary or a headline. It's like giving us a sneak peek of your story without all the details. For example, you could say 'Winning Big in Sports', 'Juggling Work and Family', or 'My Adventure Learning Spanish'. Just a line or two is enough to give us an idea!</p>
+                      <p>Who Are You Celebrating? Describe the essence of their story in a few words. Think of it like a headline that captures their spirit or achievements. For instance, 'Community Hero's Impact', 'Innovator in Tech', 'Dedicated Volunteer', or 'Family’s Heart and Soul'. Just a brief description helps us understand the special qualities of the person you're honoring!</p>
                       <button type='button' onClick={showModal} className="text-blue-500 mt-3 cursor-pointer hover:underline">See Examples Here</button>
                       </div>
                       <Form.Item
@@ -195,7 +193,7 @@ const renderStep = () => {
                           label=""
                           name="subject"
                         >
-                          <Input.TextArea placeholder="Example: Balancing Work and Personal Passions..." />
+                          <Input.TextArea placeholder="Example: Honoring a Lifetime of Teaching and Mentorship" />
                         </Form.Item>
                         <Modal title="Examples" open={isModalVisible} onCancel={closeModal} footer={null}>
                           <SubjectExamples />
@@ -208,13 +206,12 @@ const renderStep = () => {
                         <>
                         <div key={3} className='slide-in'>
                         <div className='mb-5'>
-                        <h1 className='text-2xl mb-2 font-anton'>Detail Your Personal Journey</h1>
-                        {/* <p>Now that you've identified the theme, this is where you can dive into the full narrative of your experiences. Share the detailed account of your personal journey, challenges, achievements, and insights related to your chosen theme. Feel free to describe specific events, turning points, and the emotions involved. The more descriptive and heartfelt your storytelling, the better we can capture and convey the depth of your unique perspective.</p> */}
-                        {/* <p>This is your space to share the details of your personal journey or experiences related to the chosen subject. Feel free to recount specific events, challenges you’ve faced, milestones you’ve achieved, or insights you’ve gained. Think of it as narrating a chapter from your life that vividly captures the essence of your story. The more descriptive and heartfelt, the better we can understand and convey your unique perspective in the article.</p> */}
-                        <p>Now, let's get into your story. Tell us everything about what you've been through – the ups and downs, key moments, and how you felt about them. It's your chance to really paint a picture of your experiences related to the theme you chose. The more you share, the more vividly we can tell your story. Think of it as sharing a chapter from your life's book.</p>
+                        <h1 className='text-2xl mb-2 font-anton'>Tell Their Story</h1>
+                        {/* <p>Now, let's get into your story. Tell us everything about what you've been through – the ups and downs, key moments, and how you felt about them. It's your chance to really paint a picture of your experiences related to the theme you chose. The more you share, the more vividly we can tell your story. Think of it as sharing a chapter from your life's book.</p> */}
+                        <p>Tell us what you know about the person you're honoring. Focus on the key moments, achievements, or qualities that stand out to you. How have their actions, passions, or journey impacted you or others? Even if you don’t know every detail, your insights will help us create a meaningful and personalized tribute. Share as much as you can - every bit helps us understand and celebrate their story."</p>
                         </div>
                       <Form.Item rules={[{ required: true, message: 'Please fill out your story' }, { validator: wordCountValidator }]} label="" name="story">
-                        <Input.TextArea placeholder="Example: My journey began in the small town of Springfield, where I first discovered my passion for painting. Overcoming initial challenges, like limited resources and lack of mentorship, I persevered, driven by my love for art. A pivotal moment was when my work was featured in a local exhibition, leading to unexpected opportunities and growth. This experience taught me the importance of resilience and staying true to one's vision..." />
+                        <Input.TextArea placeholder="Example: My sister's journey began in the vibrant community of Maplewood, where she discovered her passion for gardening. Despite facing challenges like harsh weather conditions and initial failures, she remained dedicated, driven by her love for nature. A pivotal moment was when she transformed a barren local park into a blooming garden, bringing together the neighborhood and sparking a green movement in our town. This experience highlighted her creativity, community spirit, and the impact one person can have on their environment..." />
                       </Form.Item>
                       </div>
                        </>
@@ -227,7 +224,7 @@ const renderStep = () => {
                                 <h1 className='text-2xl mb-2 font-anton'>Upload Header Image (optional)</h1>
                                 <p>Upload an image to use as the header for your article.</p>
                                 <img src={landscape} />
-                                <p><b>*Please upload images in landscape orientation only*</b></p>
+                                <p><b>Note: Lanscape oriented images will look better as header image</b></p>
                               </div>
                               <Form.Item
                                 name="headerImage"
@@ -257,22 +254,22 @@ const renderStep = () => {
                                         return Upload.LIST_IGNORE;
                                       }
 
-                                      return new Promise((resolve, reject) => {
-                                        const img = new Image();
-                                        img.src = URL.createObjectURL(file);
-                                        img.onload = () => {
-                                          const width = img.naturalWidth;
-                                          const height = img.naturalHeight;
+                                      // return new Promise((resolve, reject) => {
+                                      //   const img = new Image();
+                                      //   img.src = URL.createObjectURL(file);
+                                      //   img.onload = () => {
+                                      //     const width = img.naturalWidth;
+                                      //     const height = img.naturalHeight;
 
-                                          // Checking for more horizontal image
-                                          if (width < height) {
-                                            message.error('Please upload an image in landscape orientation!');
-                                            reject(Upload.LIST_IGNORE);
-                                          }
-                                          resolve(true);
-                                        };
-                                        img.onerror = reject;
-                                      });
+                                      //     // Checking for more horizontal image
+                                      //     if (width < height) {
+                                      //       message.error('Please upload an image in landscape orientation!');
+                                      //       reject(Upload.LIST_IGNORE);
+                                      //     }
+                                      //     resolve(true);
+                                      //   };
+                                      //   img.onerror = reject;
+                                      // });
                                     }}
                                     onChange={info => {
                                       if (info.file.status === 'done') {
@@ -298,7 +295,7 @@ const renderStep = () => {
                         <div key={5} className='slide-in'>
                         <div className='mb-5'>
                         <h1 className='text-2xl mb-2 font-anton'>Receive Your Article Link</h1>
-                        <p>Enter your email address below, and we'll send you a direct link to the article.</p>
+                        <p>Please provide your own email address below. We'll send the article link to you, the gift-giver, so you can surprise your chosen recipient at just the right moment.</p>
                         </div>
                         <Form.Item
                           name="email"

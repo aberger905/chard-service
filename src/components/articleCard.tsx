@@ -12,7 +12,7 @@ const ArticleCard = ({ image, title, description, url}: Props) => {
   return (
     <>
     <div className='border bg-white rounded-lg w-[90%] sm:w-64 shadow-lg'>
-      <Link to={url}>
+      <a href={url} target="_blank" rel="noopener noreferrer">
     <div
       className="w-full h-48 bg-cover bg-center bg-no-repeat border rounded-tl-lg rounded-tr-lg"
       style={{ backgroundImage: `url(${image})` }}
@@ -23,7 +23,7 @@ const ArticleCard = ({ image, title, description, url}: Props) => {
     <p className='text-sm'>{description.slice(0,100)}...</p>
     <p className='text-sm font-bold text-gray-700'>GO TO ARTICLE</p>
     </div>
-    </Link>
+    </a>
     </div>
     </>
   )

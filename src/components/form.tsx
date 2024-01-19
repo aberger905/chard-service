@@ -35,12 +35,12 @@ const ArticleForm: React.FC = () => {
       return Promise.reject(new Error('Please enter your first name'));
     }
 
-    if (value.length > 20) {
+    if (value.length > 50) {
       return Promise.reject(new Error('First name must be less than 20 characters'));
     }
 
-    if (!/^[A-Za-z]+$/.test(value)) {
-      return Promise.reject(new Error('First name can only contain letters'));
+    if (!/^[A-Za-z ]+$/.test(value)) {
+      return Promise.reject(new Error('First name can only contain letters and spaces'));
     }
 
     return Promise.resolve();
@@ -162,14 +162,14 @@ const renderStep = () => {
                     return (
                       <>
                       <div key={1} className='slide-in'>
-                      <h1 className='text-2xl mb-2 font-anton'>Details About the Person</h1>
-                      <Form.Item label="Persons First Name" name="firstName" rules={[ { validator: firstNameValidator}]}>
+                      <h1 className='text-2xl mb-2 font-anton'>Details About The Person</h1>
+                      <Form.Item label="Person's First Name" name="firstName" rules={[ { validator: firstNameValidator}]}>
                         <Input placeholder="First Name" />
                       </Form.Item>
-                      <Form.Item label="Persons Last Name" name="lastName" rules={[{ validator: lastNameValidator}]}>
+                      <Form.Item label="Person's Last Name" name="lastName" rules={[{ validator: lastNameValidator}]}>
                         <Input placeholder="Last Name" />
                       </Form.Item>
-                      <Form.Item label="Persons Pronouns" name="pronouns" rules={[{ required: true }]}>
+                      <Form.Item label="Person's Pronouns" name="pronouns" rules={[{ required: true }]}>
                         <Select placeholder="Select your pronouns" allowClear>
                           <Option value="he/him">He/Him</Option>
                           <Option value="she/her">She/Her</Option>

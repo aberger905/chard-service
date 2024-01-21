@@ -30,7 +30,7 @@ const Payment: React.FC = () => {
   return (
     <>
     <div className=' bg-gradient-to-t from-gray-300 to white min-h-screen'>
-    <h1 className='text-4xl text-center pt-5 pb-8 font-anton fadeUp'>Almost There! Confirm a Package to Bring Your Story to Life</h1>
+    <h1 className='text-4xl text-center pt-5 pb-8 font-anton fadeUp'>Almost There! Confirm Your Package to Bring Your Story to Life</h1>
     {/* <h2 className='text-xl text-center mb-10 font-anton fadeUp'>Select Your Perfect Package.</h2> */}
     <div className='flex flex-col md:flex-row justify-center items-center pb-8'>
       <div className='bg-white flex flex-col justify-center items-center border shadow-sm rounded-lg p-5 w-72 fadeUp'>

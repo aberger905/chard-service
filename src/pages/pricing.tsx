@@ -15,7 +15,7 @@ const Pricing: React.FC = () => {
   return (
     <>
     <div className=' bg-gradient-to-t from-gray-300 to white min-h-screen'>
-    <h1 className='text-5xl text-center pt-5 font-anton fadeUp'>Give the Gift of Recognition.</h1>
+    <h1 className='text-5xl text-center pt-5 pb-8 font-anton fadeUp'>Give the Gift of Recognition.</h1>
     <div className='flex flex-col md:flex-row justify-center items-center pb-8'>
       <div className='bg-white flex flex-col justify-center items-center border shadow-sm rounded-lg p-5 w-72 fadeUp'>
         <p className='text-gray-700'>Basic</p>

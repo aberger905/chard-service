@@ -241,7 +241,6 @@ const renderStep = () => {
                               <div className='mb-5'>
                                 <h1 className='text-2xl mb-2 font-anton'>Upload Header Image (optional)</h1>
                                 <p>Upload an image to use as the header for your article.</p>
-                                <img src={landscape} />
                                 <p><b>Note: Lanscape oriented images will look better as header image</b></p>
                               </div>
                               <Form.Item

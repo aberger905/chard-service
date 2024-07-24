@@ -1,1 +1,1 @@
-News service
+app.journova.org
